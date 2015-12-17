@@ -1,0 +1,17 @@
+html
+  head
+    title Smis
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    - if notice
+      p.alert.alert-success= notice
+    - if alert
+      p.alert.alert-danger= alert
+
+    section id="container"
+      = render 'shared/nav'
+      section#main-content
+        section.wrapper.site-min-height
+          = yield
