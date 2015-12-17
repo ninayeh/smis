@@ -7,7 +7,7 @@ Premium: http://www.gridgum.com
 */
 
 /* Import fonts */
-@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+/*@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);*/
 
 /* BASIC THEME CONFIGURATION */
 body {
@@ -67,7 +67,7 @@ a, a:hover, a:focus {
 	background-color: #ffffff;
 	outline: none !important;
 	text-decoration: none;
-}	
+}
 
 
 
@@ -266,7 +266,7 @@ ul.top-menu > li > .logout {
     top:15px;
 }
 .active .dcjq-icon {
-    background: url("../img/nav-expand.png") no-repeat bottom;
+    /*background: url("../img/nav-expand.png") no-repeat bottom;*/
     border-radius:3px;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
@@ -881,7 +881,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 .border-head h3 {
     margin-top: 20px;
     margin-bottom: 20px;
-	margin-left: 15px;	
+	margin-left: 15px;
     padding-bottom: 5px;
     font-weight: normal;
     font-size: 18px;
@@ -991,7 +991,7 @@ PANELS CONFIGURATIONS
 
 .pn:hover {
 	box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
-	
+
 }
 
 /*Grey Panel*/
@@ -1047,7 +1047,7 @@ PANELS CONFIGURATIONS
 	color: white;
 }
 .darkblue-panel footer h5 {
-	margin-left:10px; 
+	margin-left:10px;
 	margin-right: 10px;
 	font-weight: 700;
 }
@@ -1108,7 +1108,7 @@ PANELS CONFIGURATIONS
 .card {
   background: white;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1em; 
+  margin-bottom: 1em;
   height: 250px;
 }
 .stock .stock-chart {
@@ -1116,11 +1116,11 @@ PANELS CONFIGURATIONS
 }
 .stock .stock-chart #chart {
     height: 10.7em;
-    background: url(http://i.imgbox.com/abmuNQx2) center bottom no-repeat; 
-}    
+    background: url(http://i.imgbox.com/abmuNQx2) center bottom no-repeat;
+}
 .stock .current-price {
   background: #1d2122;
-  padding: 10px; 
+  padding: 10px;
 }
 .stock .current-price .info abbr {
     display: block;
@@ -1130,14 +1130,14 @@ PANELS CONFIGURATIONS
     margin-top: 0.18em;
 }
 .stock .current-price .changes {
-    text-align: right; 
+    text-align: right;
 }
 .stock .changes .up {
 	color: #4fd98b
 }
 .stock .current-price .changes .value {
       font-size: 1.8em;
-      font-weight: 700; 
+      font-weight: 700;
 }
 .stock .summary {
     color: #2f2f2f;
@@ -1476,17 +1476,17 @@ PANELS CONFIGURATIONS
 .steps label:hover:before{
   border: 1px solid #46b7e5;
 }
-#op1:checked ~ label[for=op1]:before,
+/*#op1:checked ~ label[for=op1]:before,
 #op2:checked ~ label[for=op2]:before,
 #op3:checked ~ label[for=op3]:before{
   border: 2px solid #96c93c;
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAHCAYAAAA1WQxeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGFJREFUeNpinHLMhgEHKADia0xQThIQs6JJ9gPxZhYQAcS6QHwDiI8hSYJAC0gBPxDLAvFcIJ6JJJkDxFNBVtgBcQ8Qa6BLghgwN4A4a9ElQYAFSj8C4mwg3o8sCQIAAQYA78QTYqnPZuEAAAAASUVORK5CYII=') no-repeat center center;
-}
+}*/
 
 /* PROFILE PANELS */
 /* Profile 01*/
 #profile-01 {
-	background: url(../img/profile-01.jpg) no-repeat center top;
+	/*background: url(../img/profile-01.jpg) no-repeat center top;*/
 	margin-top: -15px;
 	background-attachment: relative;
 	background-position: center center;
@@ -1534,7 +1534,7 @@ PANELS CONFIGURATIONS
 
 /* Profile 02*/
 #profile-02 {
-	background: url(../img/profile-02.jpg) no-repeat center top;
+	/*background: url(../img/profile-02.jpg) no-repeat center top;*/
 	margin-top: -15px;
 	background-attachment: relative;
 	background-position: center center;
@@ -1689,12 +1689,12 @@ PANELS CONFIGURATIONS
   -moz-transition: opacity 0.4s;
   -o-transition: opacity 0.4s;
   transition: opacity 0.4s;
-  
+
 }
 
 .project:hover .photo-wrapper {
   background-color: #68dff0;
-	background-image:url(../img/zoom.png);
+	/*background-image:url(../img/zoom.png);*/
 	background-repeat:no-repeat;
 	background-position:center;
 	top: 0;
@@ -1897,8 +1897,8 @@ label {
 .switch-square {
     border-radius: 6px;
     -webkit-border-radius: 6px;
-    -webkit-mask: url('../img/mask.png') 0 0 no-repeat;
-    mask: url('../img/mask.png') 0 0 no-repeat;
+    /*-webkit-mask: url('../img/mask.png') 0 0 no-repeat;
+    mask: url('../img/mask.png') 0 0 no-repeat;*/
 }
 .switch-square > div.switch-off label {
     border-color: #7f8c9a;
