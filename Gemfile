@@ -33,7 +33,7 @@ gem 'slim-rails'
 gem 'kaminari'
 
 # Form
-# gem 'simple_form'
+gem 'simple_form'
 
 # Authorization & Authentication
 gem 'bcrypt'

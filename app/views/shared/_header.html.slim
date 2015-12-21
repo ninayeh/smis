@@ -1,8 +1,9 @@
 header.header.black-bg
-  / .sidebar-toggle-box
-  /   .fa.fa-bars.tooltips data-original-title=("Toggle Navigation") data-placement="right"
-  a.logo href="index.html"
-    b 論文研究探索知識管理平台
+  .sidebar-toggle-box
+    .fa.fa-bars.tooltips data-original-title=("Toggle Navigation") data-placement="right"
+  / a.logo href="index.html"
+  = link_to '論文研究探索知識管理平台', root_path, class:'logo'
+    / b 論文研究探索知識管理平台
   / #top_menu.nav.notify-row
   /   ul.nav.top-menu
   /     li.dropdown
@@ -95,6 +96,11 @@ header.header.black-bg
   /           a href="index.html#"  See all messages
   .top-menu
     ul.nav.pull-right.top-menu
-      li
-        = link_to '註冊', new_user_registration_path, class:'logout'
+      - if user_signed_in?
+        li = link_to '登出', destroy_user_session_path, method: :delete, class:'logout'
+      - else
+        li
+          = link_to '註冊', new_user_registration_path, class:'logout'
+        li
+          = link_to '登入', user_session_path, class:'logout'
         / a.logout href="login.html"  註冊
