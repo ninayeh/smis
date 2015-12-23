@@ -1,0 +1,7 @@
+h1 分享學習資源
+= simple_form_for @share do |f|
+  = f.input :title
+  = f.input :content, as: :text
+  = f.button :submit, '送出', class: 'btn-primary col-sm-offset-11'
+end
+

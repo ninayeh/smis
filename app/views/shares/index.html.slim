@@ -1,0 +1,27 @@
+section
+  .row.mt
+    .col-lg-12
+      .white-panel.pn
+        .white-header
+          h1 研究工具
+
+        .row.mt
+          .col-lg-12
+            = link_to '新增', new_share_path, class:'btn btn-theme03'
+            br
+            table.table.table-bordered.table-striped.table-condensed.cf
+              thead.cf
+                tr
+                  th 標題
+                  th 內容
+                  th.numeric
+
+              tbody
+                - @shares.each do |object|
+                  tr
+                    td data-title="Code"
+                      = object.title
+                    td data-title="Company"
+                      = object.content
+                    td
+                      = link_to '檢視', share_path(object)
