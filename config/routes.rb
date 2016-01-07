@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   resources :shares
   root 'pages#index'
   resources :questions
+  resources :schedules
+  post 'schedules/recieve'
 
 end

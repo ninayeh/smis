@@ -44,6 +44,8 @@ gem 'cancancan'
 gem 'rails-i18n'
 gem 'json'
 
+gem 'bootstrap-datepicker-rails'
+
 group :development, :test do
   gem 'byebug'
 end
