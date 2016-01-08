@@ -1,9 +1,8 @@
 class SchedulesController < ApplicationController
-  skip_before_filter :verify_authenticity_token, :only => :recieve
 
-  def object_params
-    params.require(:schedule).permit(:Start, :Final)
-  end
+  # def object_params
+  #   params.require(:schedule).permit(:Start, :Final)
+  # end
 
   def index
 
@@ -22,8 +21,6 @@ class SchedulesController < ApplicationController
        @date_ary.push (@start.to_date + addDay)
 
     end
-
-    # redirect_to schedules_path
   end
 
   def new

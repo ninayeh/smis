@@ -1,9 +1,18 @@
-p = @days
-p = @test
+h1
+  i.fa.fa-angle-right
+  | 每階段日期計算
+h3 開始日期 :
+h3 = @start
 
-p = @start
-p = @final
+h3 預計畢業日期：
+h3 = @final
 
-p = @result1
+h3 各階段時間：
+= form_tag "/new" , method: :post do
+  - @date_ary.each do |d|
+    label_tag 第  階段 ：
+    input type="text" name="name" value="#{d}" placeholder="#{d}"
+    br
 
-p = @date_ary
+
+= link_to "重新計算", schedules_path

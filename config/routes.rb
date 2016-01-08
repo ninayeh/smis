@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   resources :questions
   resources :schedules
-  post 'schedules/recieve'
+
+  post 'schedules/recieve', to: 'schedules#recieve'
 
 end
