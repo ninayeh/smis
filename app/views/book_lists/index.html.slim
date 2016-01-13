@@ -1,0 +1,19 @@
+h1 Listing book_lists
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @book_lists.each do |book_list|
+      tr
+        td = link_to 'Show', book_list
+        td = link_to 'Edit', edit_book_list_path(book_list)
+        td = link_to 'Destroy', book_list, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Book list', new_book_list_path
