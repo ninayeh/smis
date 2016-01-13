@@ -1,8 +1,8 @@
 class SchedulesController < ApplicationController
 
-  # def object_params
-  #   params.require(:schedule).permit(:Start, :Final)
-  # end
+  def object_params
+    params.require(:schedule).permit(:Start, :Final)
+  end
 
   def index
 
