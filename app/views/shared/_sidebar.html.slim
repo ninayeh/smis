@@ -9,18 +9,21 @@ aside
         = link_to schedules_path
           i.fa.fa-dashboard
           span 規劃里程碑
-      li.sub-menu
-        = link_to shares_path
+      li.sub-menu.active
+        a href=""
           i.fa.fa-cogs
           span 學習足跡
+        ul.sub
+          li = link_to '> 書單', book_lists_path
+          li = link_to '> 筆記', shares_path
       li.sub-menu
         = link_to questions_path
           i.fa.fa-desktop
           span 自我調節學習問卷
-      li.sub-menu
-        a href="javascript:;"
-          i.fa.fa-book
-          span 知識共享討論區
+      / li.sub-menu
+      /   a href="javascript:;"
+      /     i.fa.fa-book
+      /     span 知識共享討論區
         / ul.sub
         /   li
         /     a href="calendar.html"  Calendar

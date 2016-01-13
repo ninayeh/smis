@@ -1,19 +1,26 @@
-h1 Listing book_lists
+h1 書單
 
-table
-  thead
+table.table.table-bordered.table-striped.table-condensed.cf
+  thead.cf
     tr
-      th
+      th 標題
+      th 檔案
+      th 上傳時間
+      / th
       th
       th
 
   tbody
     - @book_lists.each do |book_list|
       tr
-        td = link_to 'Show', book_list
-        td = link_to 'Edit', edit_book_list_path(book_list)
-        td = link_to 'Destroy', book_list, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = book_list.title
+        / td = book_list.file
+        td= link_to '下載', book_list.file.url ,class:'btn btn-success btn-xs'
+        td = book_list.created_at
+        / td = link_to 'Show', book_list
+        td = link_to '修改', edit_book_list_path(book_list)
+        td = link_to '刪除', book_list, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Book list', new_book_list_path
+= link_to '新增書單', new_book_list_path ,class:'btn btn-default btn-sm'
