@@ -1,9 +1,6 @@
 = simple_form_for(@book_list) do |f|
   = f.error_notification
-
-  .form-inputs
-
+  = f.input :title
+  = f.input :file , label: '書單' , as: :file
   .form-actions
-    = f.input :title
-    = f.input :file , label: '書單' , as: :file
     = f.button :submit

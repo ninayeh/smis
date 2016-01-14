@@ -1,0 +1,9 @@
+= simple_form_for(@note) do |f|
+  = f.error_notification
+
+  / .form-inputs
+  = f.input :title, label:'標題'
+  = f.input :content ,as: :text, input_html: {class: 'content'} , label: '內容'
+
+  .form-actions
+    = f.button :submit

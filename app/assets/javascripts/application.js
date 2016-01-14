@@ -1,6 +1,6 @@
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/core
@@ -10,11 +10,10 @@
 //= require_tree ./plugins
 //= require_tree .
 
-
-$(function()
-{
-    $('.content').redactor({
-      minHeight: 300,
-      lang: 'zh_tw'
-    });
+$(document).ready(function(){
+  $('.content').redactor({
+    minHeight: 300,
+    lang: 'zh_tw'
+  });
 });
+
