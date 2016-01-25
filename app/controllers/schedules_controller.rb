@@ -9,9 +9,9 @@ class SchedulesController < ApplicationController
   end
 
   def recieve
-    @start = params[:Start]
-    @final = params[:Final]
-    @totalDay = (@final.to_date - @start.to_date).to_i
+    @start = params[:Start].to_date
+    @final = params[:Final].to_date
+    @totalDay = (@final - @start.to_date).to_i
     @test = 'Hello'
 
     math_ary = [0.03, 0.05, 0.09, 0.13, 0.14, 0.21, 0.23, 0.25, 0.5, 0.55, 0.74, 0.79]

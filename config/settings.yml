@@ -1,3 +1,10 @@
 defaults: &defaults
   schedule:
-    step: ['']
+    step:
+      - 了解（指導教授、實驗室、系上）的期望
+      - 確定你的研究議題
+
+development:
+ <<: *defaults
+production:
+ <<: *defaults

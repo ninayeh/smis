@@ -49,6 +49,7 @@ gem 'rails-i18n'
 gem 'json'
 
 gem 'bootstrap-datepicker-rails'
+gem 'settingslogic'
 
 group :development, :test do
   gem 'byebug'
