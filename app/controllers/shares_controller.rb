@@ -1,4 +1,5 @@
 class SharesController < ApplicationController
+  # 預計做分享用的
   def index
     @shares = Share.all
   end

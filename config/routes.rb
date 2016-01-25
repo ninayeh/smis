@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
-  resources :notes
-  resources :book_lists
+  root 'pages#index'
   devise_for :users
+
   get 'pages/index'
   get 'learning', to:'pages#learning'
-  resources :shares
-  root 'pages#index'
-  resources :questions
-  resources :schedules
 
+  resources :notes
+  resources :book_lists
+  resources :schedules
   post 'schedules/recieve', to: 'schedules#recieve'
+
+  # 沒有使用到的
+  resources :shares
+  resources :questions
 
 end
