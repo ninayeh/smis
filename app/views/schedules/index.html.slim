@@ -1,18 +1,19 @@
 h1 安排論文進度
 
 #sandbox-container.col-md-12
-  form action="/schedules/recieve" accept-charset="UTF-8" method="post"
-    input name="UTF-8" type="hidden" value="✓"
-    input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"
-    .input-group
-      span.input-group-addon#basic-addon1
-        | 開始日期：
-      input.form-control.date type="text" placeholder="#{Date.today}" aria-describedby="basic-addon1" data-provide='datepicker' name="Start" value="#{Date.today}"
-    br
-    .input-group
-      span.input-group-addon#basic-addon1
-        | 畢業日期：
-      input.form-control.date type="text" placeholder="選擇預計畢業日期" aria-describedby="basic-addon1" data-provide='datepicker' name="Final"
-    br
-      input.btn.btn-default type="submit" value="Submit" name="commit"
+  / form action="/schedules/recieve" accept-charset="UTF-8" method="post"
+  /   input name="UTF-8" type="hidden" value="✓"
+  /   input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"
+  /   .input-group
+  /     span.input-group-addon#basic-addon1
+  /       | 開始日期：
+  /     input.form-control.date type="text" placeholder="#{Date.today}" aria-describedby="basic-addon1" data-provide='datepicker' name="Start" value="#{Date.today}"
+  /   br
+  /   .input-group
+  /     span.input-group-addon#basic-addon1
+  /       | 畢業日期：
+  /     input.form-control.date type="text" placeholder="選擇預計畢業日期" aria-describedby="basic-addon1" data-provide='datepicker' name="Final"
+  /   br
+  /     input.btn.btn-default type="submit" value="Submit" name="commit"
+  = link_to "建立研究規劃", new_schedule_path
 

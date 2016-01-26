@@ -8,11 +8,10 @@ h3 預計畢業日期：
 h3 = @final
 
 h3 各階段時間：
-= form_tag "/new" , method: :post do
-  - @date_ary.each do |d|
-    label_tag 第  階段 ：
-    input type="text" name="name" value="#{d}" placeholder="#{d}"
+= form_tag "/new" , method: :post, class: 'form-inline' do
+  - Settings.schedule.step.each_with_index do |step, d|
+    input type="text" name="name" value="#{@date_ary[d]}" placeholder="#{@date_ary[d]}"
+    input type="text" name="name" value="#{step}" placeholder="#{step}"
     br
-
 
 = link_to "重新計算", schedules_path
