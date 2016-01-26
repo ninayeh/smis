@@ -2,12 +2,19 @@ class SchedulesController < ApplicationController
   # before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @schedule = Schedule.all
+    @schedules = Schedule.all
+  end
+
+  def new
+    @schedule = Schedule.new
   end
 
   def recieve
-    @start = params[:Start].to_date
-    @final = params[:Final].to_date
+    @schedule = Schedule.new(object_params)
+    @schedule.save
+
+    @start = object_params['start_date'].to_date
+    @final = object_params['end_date'].to_date
     @totalDay = (@final - @start.to_date).to_i
     math_ary = [0.03, 0.05, 0.09, 0.13, 0.14, 0.21, 0.23, 0.25, 0.5, 0.55, 0.74,
                 0.79, 0.84, 0.89, 0.91, 0.95, 0.97, 1]
@@ -84,12 +91,8 @@ class SchedulesController < ApplicationController
     #   @note = Note.find(params[:id])
     # end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    # def note_params
-    #   params[:note]
-    # end
     def object_params
-      params.require(:schedule).permit(:Start, :Final)
+      params.require(:schedule).permit(:start_date, :end_date)
     end
 
 end
