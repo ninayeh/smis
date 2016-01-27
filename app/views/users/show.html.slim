@@ -1,0 +1,17 @@
+h1 Users#show
+p Find me in app/views/users/show.html.slim
+= link_to "編輯" , {action: 'edit'},class:'btn btn-success btn-default'
+table.table.table-hover
+  thead
+    tr.active
+      th colspan="2"  詳細資料
+  tbody
+    tr
+      td 名稱
+      td current_object.name
+    tr
+      td 信箱
+      td = @user.email
+    tr
+      td 所屬單位
+      td current_object.organization.name

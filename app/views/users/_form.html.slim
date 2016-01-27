@@ -1,0 +1,8 @@
+= simple_form_for @user do |f|
+  / = f.input :name ,label: '姓名'
+  = f.input :email, label: '信箱'
+  / = f.association :organization, label: '組織', input_html: { id: 'user_add_form_user_organization_id' }
+  / = f.input :role, label: '使用者權限', collection: User.roles.values
+  = f.input :password, label: '密碼'
+  = f.input :password_confirmation , label: '密碼確認'
+  = f.submit class: "btn btn-primary"

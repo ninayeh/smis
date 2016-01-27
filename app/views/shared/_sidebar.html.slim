@@ -4,8 +4,15 @@ aside
       p.centered
         a href="profile.html"
           / = image_tag 'ui-sam.jpg', class: 'img-circle'
-      h5.centered 使用者名稱
-      li.mt
+      - if user_signed_in?
+        p.centered = Date.today
+        h5.centered = current_user.email
+        li.mt
+          = link_to user_path(current_user.id)
+            i.fa.fa-book
+            span 個人資料
+
+      li
         = link_to schedules_path
           i.fa.fa-dashboard
           span 規劃里程碑
@@ -19,50 +26,6 @@ aside
           / li = link_to '> 筆記', shares_path
       li.sub-menu
         = link_to questions_path
-          / i.fa.fa-desktop
           i.fa.fa-bar-chart-o
           span 自我調節學習問卷
-      / li.sub-menu
-      /   a href="javascript:;"
-      /     i.fa.fa-book
-      /     span 知識共享討論區
-        / ul.sub
-        /   li
-        /     a href="calendar.html"  Calendar
-        /   li
-        /     a href="gallery.html"  Gallery
-        /   li
-        /     a href="todo_list.html"  Todo List
 
-        / ul.sub
-        /   li.active
-        /     a href="blank.html"  Blank Page
-        /   li
-        /     a href="login.html"  Login
-        /   li
-        /     a href="lock_screen.html"  Lock Screen
-      / li.sub-menu
-      /   a href="javascript:;"
-      /     i.fa.fa-tasks
-      /     span Forms
-      /   ul.sub
-      /     li
-      /       a href="form_component.html"  Form Components
-      / li.sub-menu
-      /   a href="javascript:;"
-      /     i.fa.fa-th
-      /     span Data Tables
-      /   ul.sub
-      /     li
-      /       a href="basic_table.html"  Basic Table
-      /     li
-      /       a href="responsive_table.html"  Responsive Table
-      / li.sub-menu
-      /   a href="javascript:;"
-      /     i.fa.fa-bar-chart-o
-      /     span Charts
-      /   ul.sub
-      /     li
-      /       a href="morris.html"  Morris
-      /     li
-      /       a href="chartjs.html"  Chartjs

@@ -1,8 +1,11 @@
 class SchedulesController < ApplicationController
   # before_action :set_note, only: [:show, :edit, :update, :destroy]
+  # Devise controller filters and helpers
+  before_action :authenticate_user!
 
   def index
     @schedules = Schedule.all
+    @missions = Mission.all
   end
 
   def new
@@ -31,6 +34,7 @@ class SchedulesController < ApplicationController
       @mission.save
     end
 
+    redirect_to schedules_path
   end
 
   # GET /notes
