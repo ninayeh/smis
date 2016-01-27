@@ -23,6 +23,14 @@ class SchedulesController < ApplicationController
        addDay =  (@totalDay * a)
        @date_ary.push (@start.to_date + addDay)
     end
+
+    Settings.schedule.step.each_with_index do |step, d|
+      @mission = Mission.new
+      @mission.title = step
+      @mission.due_date = @date_ary[d]
+      @mission.save
+    end
+
   end
 
   # GET /notes
