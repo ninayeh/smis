@@ -1,0 +1,2 @@
+module Backend::LaboratoriesHelper
+end

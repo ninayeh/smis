@@ -1,0 +1,6 @@
+h1 新增系所資料
+= simple_form_for [:backend, current_object] do |f|
+  = f.error_notification
+  = f.input :name , label: '系所名稱'
+  .form-actions
+    = f.button :submit

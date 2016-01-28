@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :questions
 
   namespace :backend do
-
+    resources :departments, skip: [:show]
+    resources :laboratories
+    resources :users
   end
 end

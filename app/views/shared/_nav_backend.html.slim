@@ -1,0 +1,39 @@
+header.header.black-bg
+  .sidebar-toggle-box
+    .fa.fa-bars.tooltips data-original-title=("Toggle Navigation") data-placement="right"
+  = link_to '論文研究探索知識管理平台 - 管理者介面', root_path, class:'logo'
+  .top-menu
+    ul.nav.pull-right.top-menu
+      - if user_signed_in?
+        li = link_to '返回網站', root_path, class:'logout'
+        li = link_to '登出', destroy_user_session_path, method: :delete, class:'logout'
+      - else
+        li
+          = link_to '註冊', new_user_registration_path, class:'logout'
+        li
+          = link_to '登入', user_session_path, class:'logout'
+aside
+  #sidebar.nav-collapse
+    ul#nav-accordion.sidebar-menu
+      - if user_signed_in?
+        p.centered = Date.today
+        h5.centered = current_user.email
+        li.mt
+          = link_to backend_user_path(current_user.id)
+            / i.fa.fa-book
+            span 個人資料
+
+      li
+        = link_to backend_departments_path
+          / i.fa.fa-dashboard
+          span 系所管理
+      li
+        = link_to backend_laboratories_path
+          / i.fa.fa-dashboard
+          span 實驗室管理
+      li
+        = link_to backend_users_path
+          / i.fa.fa-dashboard
+          span 使用者管理
+
+

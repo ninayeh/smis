@@ -1,0 +1,5 @@
+= simple_form_for(@current_object) do |f|
+  = f.error_notification
+  = f.input :name , label: '系所名稱'
+  .form-actions
+    = f.button :submit

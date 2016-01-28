@@ -1,0 +1,2 @@
+module Backend::DepartmentsHelper
+end
