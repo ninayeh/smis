@@ -17,12 +17,12 @@ aside
           i.fa.fa-dashboard
           span 規劃里程碑
       li.sub-menu.active
-        a href=""
+        li = link_to notes_path
           i.fa.fa-cogs
-          span 學習足跡
-        ul.sub
-          li = link_to '> 書單', book_lists_path
-          li = link_to '> 筆記', notes_path
+          span 研究筆記本
+        / ul.sub
+        /   li = link_to '> 書單', book_lists_path
+        /   li = link_to '> 筆記', notes_path
           / li = link_to '> 筆記', shares_path
       li.sub-menu
         = link_to questions_path
