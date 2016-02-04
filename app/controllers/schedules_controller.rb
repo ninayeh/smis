@@ -4,8 +4,8 @@ class SchedulesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @schedules = Schedule.all
-    @missions = Mission.all
+    @schedules = Schedule.find_by(user_id: current_user.id)
+    @missions = Mission.where(schedule_id: @schedules.id).order(due_date: :asc)
   end
 
   def new
@@ -13,7 +13,7 @@ class SchedulesController < ApplicationController
   end
 
   def recieve
-    @schedule = Schedule.new(object_params)
+    @schedule = current_user.schedules.new(object_params)
     @schedule.save
 
     @start = object_params['start_date'].to_date
@@ -29,6 +29,7 @@ class SchedulesController < ApplicationController
 
     Settings.schedule.step.each_with_index do |step, d|
       @mission = Mission.new
+      @mission.schedule_id = @schedule.id
       @mission.title = step
       @mission.due_date = @date_ary[d]
       @mission.save

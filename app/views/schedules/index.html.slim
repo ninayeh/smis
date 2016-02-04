@@ -3,6 +3,7 @@ h1 安排論文進度
   - if @missions.nil?
     = link_to "還沒建立計畫嗎？點選開始建立研究規劃吧！", new_schedule_path
   - else
+    = link_to "建立研究規劃", new_schedule_path
     table
       thead
         tr
@@ -20,3 +21,4 @@ h1 安排論文進度
             / td = link_to 'Show', mission
             / td = link_to 'Edit', edit_mission_path(mission)
             / td = link_to 'Destroy', missions, data: {:confirm => 'Are you sure?'}, :method => :delete
+- console
