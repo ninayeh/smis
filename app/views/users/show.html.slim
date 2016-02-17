@@ -7,11 +7,11 @@ table.table.table-hover
       th colspan="2"  詳細資料
   tbody
     tr
-      td 名稱
-      td current_object.name
+      td 姓名
+      td = @user.name
     tr
       td 信箱
       td = @user.email
     tr
       td 所屬單位
-      td current_object.organization.name
+      td = @user.department_id

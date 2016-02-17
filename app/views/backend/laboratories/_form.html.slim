@@ -1,0 +1,7 @@
+= simple_form_for [:backend, current_object] do |f|
+  = f.error_notification
+  = f.input :name , label: '實驗室名稱'
+  = f.input :professor_name
+  = f.input :description
+  .form-actions
+    = f.button :submit

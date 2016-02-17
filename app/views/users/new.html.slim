@@ -1,0 +1,6 @@
+h1 新增使用者
+= simple_form_for current_object, url: users_path do |f|
+  = f.input :email, label: '信箱'
+  = f.input :password, label: '密碼'
+  = f.input :password_confirmation, label: '再次輸入密碼'
+  = f.submit class: "btn btn-primary"
