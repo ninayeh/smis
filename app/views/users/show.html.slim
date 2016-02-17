@@ -1,6 +1,7 @@
 h1 Users#show
 p Find me in app/views/users/show.html.slim
-= link_to "編輯" , {action: 'edit'},class:'btn btn-success btn-default'
+/ = link_to "編輯" , {action: 'edit'},class:'btn btn-success btn-default'
+= link_to "編輯個人資料", edit_user_registration_path, class:'btn btn-success btn-default'
 table.table.table-hover
   thead
     tr.active
