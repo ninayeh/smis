@@ -1,19 +1,32 @@
 h1 筆記列表
-
-table
-  thead
-    tr
-      th
-      th
-      th
-
-  tbody
-    - @notes.each do |note|
-      tr
-        td = link_to 'Show', note
-        td = link_to 'Edit', edit_note_path(note)
-        td = link_to 'Destroy', note, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
 = link_to '新增筆記', new_note_path ,class:'btn btn-default btn-sm'
+hr
+.col-lg-12
+  .content-panel
+    / h4
+    /   i.fa.fa-angle-right
+    /   | 實驗室管理
+
+    section#no-more-tables
+      table.table.table-bordered.table-striped.table-condensed.cf
+        thead.cf
+          tr
+            th 標題
+            th 修改日期
+            th 是否已填寫反思筆記
+            th
+            th
+            th
+
+        tbody
+          - @notes.order(:updated_at).each do |note|
+            tr
+              td = note.title
+              td = note.updated_at
+              td = note.final_content.present?
+              td.numeric = link_to '檢視', note
+              td.numeric = link_to '編輯', edit_note_path(note)
+              td.numeric = link_to '刪除', note, data: {:confirm => '確定刪除?'}, :method => :delete
+
+
+

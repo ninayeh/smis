@@ -1,6 +1,19 @@
-p#notice = notice
+h1 = @note.title
+p 建立日期：#{@note.created_at}
+p 上次修改日期：#{@note.updated_at}
+hr
+h3 內容
+/ .col-lg-12
+.content-panel
+  .description = sanitize_content(@note.content)
+
+h3 反思回饋筆記
+/ .col-lg-12
+.content-panel
+  .description = sanitize_content(@note.final_content)
 
 
-= link_to 'Edit', edit_note_path(@note)
+
+= link_to '編輯', edit_note_path(@note)
 '|
-= link_to 'Back', notes_path
+= link_to '返回', notes_path
