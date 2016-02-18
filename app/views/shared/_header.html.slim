@@ -1,9 +1,8 @@
 header.header.black-bg
   .sidebar-toggle-box
-    .fa.fa-bars.tooltips data-original-title=("Toggle Navigation") data-placement="right"
-  / a.logo href="index.html"
+    .tooltips data-original-title=("Toggle Navigation") data-placement="right"
+    / .fa.fa-bars
   = link_to '論文研究探索知識管理平台', root_path, class:'logo'
-    / b 論文研究探索知識管理平台
 
   .top-menu
     ul.nav.pull-right.top-menu
@@ -14,4 +13,3 @@ header.header.black-bg
           = link_to '註冊', new_user_registration_path, class:'logout'
         li
           = link_to '登入', user_session_path, class:'logout'
-        / a.logout href="login.html"  註冊

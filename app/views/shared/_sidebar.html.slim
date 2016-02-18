@@ -2,11 +2,12 @@ aside
   #sidebar.nav-collapse
     ul#nav-accordion.sidebar-menu
       p.centered
-        a href="profile.html"
-          / = image_tag 'ui-sam.jpg', class: 'img-circle'
       - if user_signed_in?
-        p.centered = Date.today
-        h5.centered = current_user.email
+
+        h5.centered 您好，#{current_user.name}
+        h5.small.centered 今天是 #{Date.today}
+        / h5.small.left 目前的目標為 #{Date.today}
+
         li.mt
           = link_to user_path(current_user.id)
             i.fa.fa-book
