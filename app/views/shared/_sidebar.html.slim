@@ -9,9 +9,10 @@ aside
         / h5.small.left 目前的目標為 #{Date.today}
 
         li.mt
-          = link_to user_path(current_user.id)
+          / = link_to user_path(current_user.id)
+          = link_to edit_user_registration_path
             i.fa.fa-book
-            span 個人資料
+            span 編輯個人資料
 
       li
         = link_to schedules_path
