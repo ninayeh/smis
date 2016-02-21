@@ -51,6 +51,9 @@ gem 'json'
 gem 'bootstrap-datepicker-rails'
 gem 'settingslogic'
 
+gem 'momentjs-rails'
+gem 'fullcalendar-rails', '~> 2.6'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
