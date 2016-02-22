@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   get 'pages/index'
+  get 'about', to:'pages#about'
   get 'learning', to:'pages#learning'
+  get 'resouece', to:'pages#resouece'
+
 
   resources :notes
   resources :book_lists

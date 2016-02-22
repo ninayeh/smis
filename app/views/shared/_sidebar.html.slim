@@ -11,20 +11,26 @@ aside
         li.mt
           / = link_to user_path(current_user.id)
           = link_to edit_user_registration_path
-            i.fa.fa-book
+            i.fa.fa-dashboard
             span 編輯個人資料
       li
+        = link_to root_path
+          i.fa.fa-home
+          span 首頁
+      li
+        = link_to about_path
+          i.fa.fa-graduation-cap
+          span 關於本平台
+      li
         = link_to laboratories_path
-          i.fa.fa-desktop
+          i.fa.fa-flask
           span 認識研究室
       li
         = link_to schedules_path
           i.fa.fa-calendar
-          / i.fa.fa-dashboard
           span 規劃里程碑
       li.sub-menu.active
         li = link_to notes_path
-          / i.fa.fa-cogs
           i.fa.fa-book
           span 研究筆記本
         / ul.sub
@@ -32,7 +38,7 @@ aside
         /   li = link_to '> 筆記', notes_path
           / li = link_to '> 筆記', shares_path
       li.sub-menu
-        = link_to questions_path
-          i.fa.fa-bar-chart-o
-          span 自我調節學習問卷
+        = link_to resouece_path
+          i.fa.fa-cogs
+          span 學習資源
 
