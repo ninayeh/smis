@@ -5,9 +5,10 @@ class SchedulesController < ApplicationController
 
   def index
     @schedules = Schedule.find_by(user_id: current_user.id)
-    @missions = Mission.where(schedule_id: @schedules.id).order(end: :asc)
-    # render json: @missions
-    @rails_side_json = @missions.to_json
+    unless @schedules.nil?
+      @missions = Mission.where(schedule_id: @schedules.id).order(end: :asc)
+    end
+
   end
 
   def new
@@ -24,26 +25,30 @@ class SchedulesController < ApplicationController
     math_ary = [0.03, 0.05, 0.09, 0.13, 0.14, 0.21, 0.23, 0.25, 0.5, 0.55, 0.74,
                 0.79, 0.84, 0.89, 0.91, 0.95, 0.97, 1]
     @date_ary = []
+    @start_dateary = [@start]
     math_ary.each do |a|
        addDay =  (@totalDay * a)
        @date_ary.push (@start.to_date + addDay)
+       @start_dateary.push (@start.to_date + addDay+1)
     end
+
 
     Settings.schedule.step.each_with_index do |step, d|
       @mission = Mission.new
       @mission.schedule_id = @schedule.id
       @mission.title = step
+      @mission.start = @start_dateary[d]
       @mission.end = @date_ary[d]
       @mission.save
-      respond_to do |format|
-        if @mission.save
-          format.html { redirect_to @mission, notice: 'Note was successfully created.' }
-          format.json { render :show, status: :created, location: @mission,:callback => "process_mission" }
-        else
-          format.html { render :new }
-          format.json { render json: @mission.errors, status: :unprocessable_entity }
-        end
-      end
+      # respond_to do |format|
+      #   if @mission.save
+      #     format.html { redirect_to @mission, notice: 'Note was successfully created.' }
+      #     format.json { render :show, status: :created, location: @mission,:callback => "process_mission" }
+      #   else
+      #     format.html { render :new }
+      #     format.json { render json: @mission.errors, status: :unprocessable_entity }
+      #   end
+      # end
     end
 
     redirect_to schedules_path

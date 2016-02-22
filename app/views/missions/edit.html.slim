@@ -1,0 +1,9 @@
+h1 Edit
+= simple_form_for(@mission) do |f|
+  = f.error_notification
+  = f.input :title, label:'標題'
+  = f.input :start ,as: :date , label: '開始日期'
+  = f.input :end ,as: :date , label: '完成日籍'
+
+  .form-actions
+    = f.button :submit
