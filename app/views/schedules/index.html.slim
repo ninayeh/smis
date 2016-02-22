@@ -1,4 +1,5 @@
 h1 安排論文進度
+#calendar
 #sandbox-container.col-md-12
   - if @missions.nil?
     = link_to "還沒建立計畫嗎？點選開始建立研究規劃吧！", new_schedule_path
@@ -10,6 +11,7 @@ h1 安排論文進度
         tr
           th 目標
           th 開始日期
+          th 完成日期
           th
           th
           th
@@ -18,7 +20,11 @@ h1 安排論文進度
         - @missions.each do |mission|
           tr
             td = mission.title
-            td = mission.due_date
+            td = mission.start
+            td = mission.end
             / td = link_to 'Show', mission_path(mission)
             / td = link_to 'Edit', edit_mission_path(mission)
             / td = link_to 'Destroy', mission_path(mission), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+
+

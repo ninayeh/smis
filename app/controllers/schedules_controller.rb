@@ -5,7 +5,9 @@ class SchedulesController < ApplicationController
 
   def index
     @schedules = Schedule.find_by(user_id: current_user.id)
-    @missions = Mission.where(schedule_id: @schedules.id).order(due_date: :asc)
+    @missions = Mission.where(schedule_id: @schedules.id).order(end: :asc)
+    # render json: @missions
+    @rails_side_json = @missions.to_json
   end
 
   def new
@@ -31,8 +33,17 @@ class SchedulesController < ApplicationController
       @mission = Mission.new
       @mission.schedule_id = @schedule.id
       @mission.title = step
-      @mission.due_date = @date_ary[d]
+      @mission.end = @date_ary[d]
       @mission.save
+      respond_to do |format|
+        if @mission.save
+          format.html { redirect_to @mission, notice: 'Note was successfully created.' }
+          format.json { render :show, status: :created, location: @mission,:callback => "process_mission" }
+        else
+          format.html { render :new }
+          format.json { render json: @mission.errors, status: :unprocessable_entity }
+        end
+      end
     end
 
     redirect_to schedules_path

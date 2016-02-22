@@ -28,6 +28,9 @@ a:hover, a:focus {
     background: #68dff0;
     color: #fff;
 }
+.fc-toolbar h2 {
+    color: #333333;
+}
 
 #container {
     width: 100%;
