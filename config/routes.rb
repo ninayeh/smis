@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post 'schedules/recieve', to: 'schedules#recieve'
   resources :users, only: [:show, :edit, :update]
   resources :missions, only: [:show, :edit, :update, :destroy]
+  resources :laboratories,only: [:index, :show]
 
   # 沒有使用到的
   resources :shares

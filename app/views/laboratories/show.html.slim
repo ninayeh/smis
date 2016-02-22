@@ -1,0 +1,16 @@
+h1 = @lab.name
+hr
+/ = render 'backend/shared/flash'
+
+table.table.table-hover
+  thead
+    tr
+      th 名稱
+      th 指導教授
+      th 簡介
+  tbody
+    tr
+      td= @lab.name
+      td= @lab.professor_name
+      td= @lab.description
+= link_to "返回列表" ,laboratories_path ,class:'btn btn-primary'
