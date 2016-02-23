@@ -54,6 +54,8 @@ gem 'settingslogic'
 gem 'momentjs-rails'
 gem 'fullcalendar-rails', '~> 2.6'
 
+gem 'highline'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
