@@ -28,6 +28,9 @@ a:hover, a:focus {
     background: #68dff0;
     color: #fff;
 }
+.task-title .fa {
+    color: #fff;
+}
 .fc-toolbar h2 {
     color: #333333;
 }

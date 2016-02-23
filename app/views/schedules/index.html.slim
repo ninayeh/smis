@@ -4,27 +4,28 @@ h1 安排論文進度
   - if @missions.nil?
     = link_to "還沒建立計畫嗎？點選開始建立研究規劃吧！", new_schedule_path
   - else
-    = link_to "建立研究規劃", new_schedule_path
-    / = link_to "編輯研究規劃", edit_schedule_path(@schedules)
-    table
-      thead
-        tr
-          th 目標
-          th 開始日期
-          th 完成日期
-          th
-          th
-          th
-
-      tbody
-        - @missions.each do |mission|
+    .content-panel
+      table.table
+        thead
           tr
-            td = mission.title
-            td = mission.start
-            td = mission.end
-            / td = link_to 'Show', mission_path(mission)
-            td = link_to 'Edit', edit_mission_path(mission)
-            / td = link_to 'Destroy', mission_path(mission), data: {:confirm => 'Are you sure?'}, :method => :delete
+            th 目標
+            th 開始日期
+            th 完成日期
+            th
+            th
+            th
+
+        tbody
+          - @missions.each do |mission|
+            tr
+              td = mission.title
+              td = mission.start
+              td = mission.end
+              / td = link_to 'Show', mission_path(mission)
+              td = link_to '編輯',edit_mission_path(mission)
+              td = link_to '刪除', mission_path(mission), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+
 
 
 
