@@ -1,4 +1,4 @@
-h1 系級管理
+h1 系所管理
 = link_to '新增', new_backend_department_path, class:'btn btn-success'
 hr
 .col-lg-12
@@ -19,5 +19,6 @@ hr
           - current_collection.each do |department|
             tr
               td = department.name
+              td.numeric = link_to '檢視', backend_department_path(department) ,class:'btn btn-success btn-xs'
               td.numeric = link_to '編輯', edit_backend_department_path(department) ,class:'btn btn-success btn-xs'
               td.numeric = link_to '刪除', backend_department_path(department), method: :delete, data: {confirm: 'Are you sure?'}  ,class:'btn btn-danger btn-xs'

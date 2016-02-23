@@ -1,0 +1,26 @@
+div.row
+  div.col-lg-12
+    h1.page-header
+      | 使用者檢視
+
+div.row
+  div.col-lg-12
+    div.panel.panel-default
+      div.panel-heading
+        h4 使用者 ##{current_object.id}
+      table.table.table-hover.table-bordered
+        tr
+          td.col-sm-3.col-md-2 Name
+          td = current_object.name
+        tr
+        tr
+          td.col-sm-3.col-md-2 Email
+          td = current_object.email
+        tr
+          td 登入次數
+          td = current_object.sign_in_count
+        tr
+          td 上次登入時間
+          td = current_object.last_sign_in_at
+
+    = link_to '返回', backend_users_path, class:'btn btn-primary'

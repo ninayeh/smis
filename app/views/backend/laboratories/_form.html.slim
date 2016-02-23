@@ -1,7 +1,10 @@
+p hello
 = simple_form_for [:backend, current_object] do |f|
   = f.error_notification
   = f.input :name , label: '實驗室名稱'
+  = f.association :department,required: true, autofocus: true,
+                prompt: "請選擇", label: '系所'
   = f.input :professor_name
-  = f.input :description
+  = f.input :description,as: :text, input_html: {class: 'content'}
   .form-actions
     = f.button :submit

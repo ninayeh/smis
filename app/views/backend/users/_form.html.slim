@@ -1,0 +1,10 @@
+= simple_form_for current_object, url: (current_object.new_record?) ? backend_users_path : backend_user_path, html: { class: 'form-horizontal col-md-8' },
+  wrapper: :horizontal_form,
+  wrapper_mappings: { file: :horizontal_file_input, boolean: :horizontal_boolean } do |f|
+  = f.input :name, required: true, label: '姓名'
+  = f.input :email,    label: '使用者帳戶', placeholder: '請輸入使用者 Email'
+  = f.association :department,required: true, autofocus: true, prompt: "請選擇", label: '系所'
+  = f.input :password, label: '使用者密碼', placeholder: '請輸入使用者 密碼'
+  = f.input :password_confirmation, label: '密碼確認', placeholder: '請再次輸入使用者密碼，以供確認'
+  = f.button :submit, '儲存', class: 'btn-primary col-sm-offset-11'
+end

@@ -1,7 +1,7 @@
 class Backend::UsersController < Backend::BaseController
   private
   def collection_scope
-    User
+    User.order("id ASC")
   end
 
   def object_params

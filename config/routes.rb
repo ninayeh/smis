@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :backend do
+  get 'dashboard/index'
+  end
+
   root 'pages#index'
   # devise_for :users, controllers: { sessions: "users/sessions" }
   devise_for :users, controllers: { registrations: 'users/registrations' }
@@ -22,6 +26,7 @@ Rails.application.routes.draw do
   resources :questions
 
   namespace :backend do
+    get 'dashboard', to: 'dashboard#index'
     resources :departments, skip: [:show]
     resources :laboratories
     resources :users

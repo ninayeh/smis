@@ -1,7 +1,7 @@
 header.header.black-bg
   .sidebar-toggle-box
-    .fa.fa-bars.tooltips data-original-title=("Toggle Navigation") data-placement="right"
-  = link_to '論文研究探索知識管理平台 - 管理者介面', root_path, class:'logo'
+    / .fa.fa-bars.tooltips data-original-title=("Toggle Navigation") data-placement="right"
+  = link_to '論文研究探索知識管理平台 - 管理者介面', backend_dashboard_path, class:'logo'
   .top-menu
     ul.nav.pull-right.top-menu
       - if user_signed_in?
@@ -16,12 +16,12 @@ aside
   #sidebar.nav-collapse
     ul#nav-accordion.sidebar-menu
       - if user_signed_in?
-        p.centered = Date.today
-        h5.centered = current_user.email
+        h5.centered 您好，#{current_user.name}
+        h5.small.centered 今天是 #{Date.today}
         li.mt
           = link_to backend_user_path(current_user.id)
             / i.fa.fa-book
-            span 個人資料
+            span 管理者資料
 
       li
         = link_to backend_departments_path

@@ -19,8 +19,8 @@ hr
           - current_collection.each do |user|
             tr
               td = user.id
-              td link_to user.name, {:action => :show, id: user.id}
-              td user.try(:organization).try(:name)
+              td = user.name
+              td = user.try(:department).try(:name)
               td = user.email
               td = user.role
               td = link_to '顯示', {action: :show, id: user.id} ,class:'btn btn-success btn-xs'

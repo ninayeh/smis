@@ -6,6 +6,6 @@ class Backend::LaboratoriesController < Backend::BaseController
   end
 
   def object_params
-    params.require(:laboratory).permit(:name, :professor_name, :description)
+    params.require(:laboratory).permit(:name, :professor_name, :description, :department_id)
   end
 end
