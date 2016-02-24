@@ -1,9 +1,11 @@
 h1 安排論文進度
-#calendar
+
 #sandbox-container.col-md-12
-  - if @missions.nil?
-    = link_to "還沒建立計畫嗎？點選開始建立研究規劃吧！", new_schedule_path
-  - else
+/ .col-md-12
+- if @missions.nil?
+  = link_to "還沒建立計畫嗎？點選開始建立研究規劃吧！", new_schedule_path
+- else
+  .col-md-12.mb
     .content-panel
       table.table
         thead
@@ -24,6 +26,10 @@ h1 安排論文進度
               / td = link_to 'Show', mission_path(mission)
               td = link_to '編輯',edit_mission_path(mission)
               td = link_to '刪除', mission_path(mission), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+  .col-md-12.mb
+    .content-panel
+      #calendar
 
 
 

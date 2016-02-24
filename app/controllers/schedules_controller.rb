@@ -40,85 +40,12 @@ class SchedulesController < ApplicationController
       @mission.start_date = @start_dateary[d]
       @mission.end_date = @date_ary[d]
       @mission.save
-      # respond_to do |format|
-      #   if @mission.save
-      #     format.html { redirect_to @mission, notice: 'Note was successfully created.' }
-      #     format.json { render :show, status: :created, location: @mission,:callback => "process_mission" }
-      #   else
-      #     format.html { render :new }
-      #     format.json { render json: @mission.errors, status: :unprocessable_entity }
-      #   end
-      # end
     end
 
     redirect_to schedules_path
   end
 
-  # GET /notes
-  # GET /notes.json
-  # def index
-  #   @notes = Note.all
-  # end
-
-  # GET /notes/1
-  # GET /notes/1.json
-  # def show
-  # end
-
-  # GET /notes/new
-  # def new
-  #   @note = Note.new
-  # end
-
-  # GET /notes/1/edit
-  # def edit
-  # end
-
-  # POST /notes
-  # POST /notes.json
-  # def create
-  #   @note = Note.new(note_params)
-
-  #   respond_to do |format|
-  #     if @note.save
-  #       format.html { redirect_to @note, notice: 'Note was successfully created.' }
-  #       format.json { render :show, status: :created, location: @note }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @note.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-  # PATCH/PUT /notes/1
-  # PATCH/PUT /notes/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @note.update(note_params)
-  #       format.html { redirect_to @note, notice: 'Note was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @note }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @note.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-  # DELETE /notes/1
-  # DELETE /notes/1.json
-  # def destroy
-  #   @note.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to notes_url, notice: 'Note was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    # def set_note
-    #   @note = Note.find(params[:id])
-    # end
 
     def object_params
       params.require(:schedule).permit(:start_date, :end_date)

@@ -19,7 +19,7 @@ $(document).ready(function(){
     lang: 'zh_tw'
   });
 
-  $('.date').datepicker({
+  $('.sc_date').datepicker({
     format: "yyyy-mm-dd",
     startView: 1,
     todayBtn: "linked",
