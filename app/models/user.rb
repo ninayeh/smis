@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   has_many :notes
   has_many :theses
   belongs_to :department
+  belongs_to :laboratory
 end

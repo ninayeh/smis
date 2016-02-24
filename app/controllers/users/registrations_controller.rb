@@ -61,11 +61,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def sign_up_params
     params.require(:user).permit(:email, :password, :password_confirmation, :role,
-                                 :name, :department_id)
+                                 :name, :department_id, :laboratory_id)
   end
 
   def account_update_params
     params.require(:user).permit(:email, :password, :password_confirmation, :role,
-                                 :name, :department_id, :current_password)
+                                 :name, :department_id, :current_password,:laboratory_id)
   end
 end

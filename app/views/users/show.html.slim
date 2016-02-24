@@ -1,18 +1,23 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
-/ = link_to "編輯" , {action: 'edit'},class:'btn btn-success btn-default'
-= link_to "編輯個人資料", edit_user_registration_path, class:'btn btn-success btn-default'
-table.table.table-hover
-  thead
-    tr.active
-      th colspan="2"  詳細資料
-  tbody
-    tr
-      td 姓名
-      td = @user.name
-    tr
-      td 信箱
-      td = @user.email
-    tr
-      td 所屬單位
-      td = @user.department_id
+h1 我的研究歷程資料
+
+br
+.content-panel
+  = link_to "編輯個人資料", edit_user_registration_path, class:'btn btn-success btn-default'
+  table.table.table-hover
+    thead
+      tr.active
+        th colspan="2"  詳細資料
+    tbody
+      tr
+        td 姓名
+        td = current_user.name
+      tr
+        td 信箱
+        td = current_user.email
+      tr
+        td 系級
+        td = current_user.department.name
+      tr
+        td 研究室
+        td = need_updated_lab(current_user)
+

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # resources :book_lists
   resources :schedules
   post 'schedules/recieve', to: 'schedules#recieve'
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show]
   resources :missions, only: [:show, :edit, :update, :destroy]
   resources :laboratories,only: [:index, :show]
   resources :theses

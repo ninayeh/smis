@@ -10,9 +10,9 @@ aside
 
         li.mt
           / = link_to user_path(current_user.id)
-          = link_to edit_user_registration_path
+          = link_to user_path(current_user.id)
             i.fa.fa-dashboard
-            span 編輯個人資料
+            span 個人資料
       li
         = link_to root_path
           i.fa.fa-home
