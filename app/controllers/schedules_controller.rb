@@ -6,7 +6,7 @@ class SchedulesController < ApplicationController
   def index
     @schedules = Schedule.find_by(user_id: current_user.id)
     unless @schedules.nil?
-      @missions = Mission.where(schedule_id: @schedules.id).order(end: :asc)
+      @missions = Mission.where(schedule_id: @schedules.id).order(end_date: :asc)
     end
 
   end
@@ -37,8 +37,8 @@ class SchedulesController < ApplicationController
       @mission = Mission.new
       @mission.schedule_id = @schedule.id
       @mission.title = step
-      @mission.start = @start_dateary[d]
-      @mission.end = @date_ary[d]
+      @mission.start_date = @start_dateary[d]
+      @mission.end_date = @date_ary[d]
       @mission.save
       # respond_to do |format|
       #   if @mission.save

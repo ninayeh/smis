@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224061905) do
+ActiveRecord::Schema.define(version: 20160224090728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,11 +43,11 @@ ActiveRecord::Schema.define(version: 20160224061905) do
 
   create_table "missions", force: :cascade do |t|
     t.string   "title"
-    t.date     "end"
+    t.date     "end_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "schedule_id"
-    t.date     "start"
+    t.date     "start_date"
   end
 
   add_index "missions", ["schedule_id"], name: "index_missions_on_schedule_id", using: :btree

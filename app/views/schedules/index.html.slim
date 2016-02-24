@@ -19,8 +19,8 @@ h1 安排論文進度
           - @missions.each do |mission|
             tr
               td = mission.title
-              td = mission.start
-              td = mission.end
+              td = mission.start_date
+              td = mission.end_date
               / td = link_to 'Show', mission_path(mission)
               td = link_to '編輯',edit_mission_path(mission)
               td = link_to '刪除', mission_path(mission), data: {:confirm => 'Are you sure?'}, :method => :delete
