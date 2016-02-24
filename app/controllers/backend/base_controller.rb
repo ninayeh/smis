@@ -95,7 +95,6 @@ class Backend::BaseController < ApplicationController
   end
 
   def verify_admin
-    # redirect_to root_url unless current_user.role == '平台管理者' ||
-    # current_user.role == '學校管理者' || current_user.role == 'Developer'
+    redirect_to root_url unless current_user.role = 'admin'
   end
 end

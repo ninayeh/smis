@@ -8,6 +8,7 @@ user.name     = ask('請輸入使用者的 姓名') { |q| q.default = '平台管
 user.email    = ask('請輸入使者的 Email：'){ |q| q.default = 'admin@smis.com' }
 user.password = ask('請輸入使者的 密碼：') { |q| q.echo = '*' }
 user.password_confirmation = ask("請再次輸入平台管理者的 密碼 以供確認：") {|q| q.echo = '*'}
+user.role = 'admin'
 user.save!
 
 ask "\n接下來，將為資料庫匯入一些基本資料，請按任意鍵繼續"
