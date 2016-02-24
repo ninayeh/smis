@@ -14,12 +14,13 @@ Rails.application.routes.draw do
 
 
   resources :notes
-  resources :book_lists
+  # resources :book_lists
   resources :schedules
   post 'schedules/recieve', to: 'schedules#recieve'
   resources :users, only: [:show, :edit, :update]
   resources :missions, only: [:show, :edit, :update, :destroy]
   resources :laboratories,only: [:index, :show]
+  resources :theses
 
   # 沒有使用到的
   resources :shares

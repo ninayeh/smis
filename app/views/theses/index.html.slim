@@ -1,0 +1,29 @@
+h1 論文題目發想
+= link_to '新增題目', new_thesis_path ,class:'btn btn-default btn-sm'
+hr
+- if current_collection.blank?
+  = link_to "想到題目了嗎？新增題目吧", new_thesis_path
+- else
+  .col-lg-12
+    .content-panel
+      section#no-more-tables
+        table.table.table-bordered.table-striped.table-condensed.cf
+          thead.cf
+            tr
+              th 發想日期
+              th 標題
+              th 是否為最後論文題目
+              th
+              th
+              th
+
+          tbody
+            - current_collection.each do |theses|
+              tr
+                td = theses.updated_at
+                td = theses.title
+                td = theses.published
+                td.numeric = link_to '檢視', theses
+                td.numeric = link_to '編輯', edit_thesis_path(theses)
+                td.numeric = link_to '刪除', theses, data: {:confirm => '確定刪除?'}, :method => :delete
+

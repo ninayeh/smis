@@ -1,0 +1,16 @@
+h1 = current_object.title
+p 建立日期：#{current_object.created_at}
+p 上次修改日期：#{current_object.updated_at}
+hr
+h3 內容
+/ .col-lg-12
+.content-panel
+  .description = current_object.title
+  .description = link_to_book_list(current_object)
+  .description = link_to_slide(current_object)
+
+
+
+
+/ = link_to '編輯', edit_note_path(@note)
+/ = link_to '返回', notes_path

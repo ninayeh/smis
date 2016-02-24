@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :schedules
   has_many :notes
+  has_many :theses
   belongs_to :department
 end
