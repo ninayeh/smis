@@ -8,5 +8,6 @@ hr
     h3 = current_object.professor_name
     hr
     p = sanitize_content(current_object.description)
+    = image_tag current_object.avatar_url, class: 'img-responsive'
 
 = link_to "返回列表" ,backend_laboratories_path ,class:'btn btn-primary'

@@ -4,9 +4,11 @@ h1 認識實驗室
     - @labs.each do |lab|
       .col-lg-4.col-md-4.col-sm-4.mb
         .content-panel.pn
-          #blog-bg
-            .blog-title = lab.name
-          .blog-text
-            h5 = lab.professor_name
+          #profile-02
+            .user
+              = image_tag lab.avatar_url, class: 'img-circle', style: 'width:80px'
+              h4 = lab.name
+          .pr2-social.centered
             p = link_to '瞭解更多', laboratory_path(lab)
+
 

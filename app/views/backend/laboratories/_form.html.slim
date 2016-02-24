@@ -5,6 +5,7 @@ p hello
   = f.association :department,required: true, autofocus: true,
                 prompt: "請選擇", label: '系所'
   = f.input :professor_name
+  = f.input :avatar, as: :file
   = f.input :description,as: :text, input_html: {class: 'content'}
   .form-actions
     = f.button :submit

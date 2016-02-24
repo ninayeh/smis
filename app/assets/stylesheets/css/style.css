@@ -1533,6 +1533,7 @@ PANELS CONFIGURATIONS
 
 /* Profile 02*/
 #profile-02 {
+    background: #393D40;
 	/*background: url(../img/profile-02.jpg) no-repeat center top;*/
 	margin-top: -15px;
 	background-attachment: relative;
@@ -1567,6 +1568,12 @@ PANELS CONFIGURATIONS
 	margin-top: 15px;
 	margin-right: 12px;
 	font-size: 20px;
+}
+.pr2-social p {
+    margin-top: 15px;
+    margin-right: 12px;
+    font-size: 20px;
+    color: #424a5d;
 }
 
 
