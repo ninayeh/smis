@@ -22,7 +22,6 @@ gem 'mini_magick'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 # Assets
 gem 'bootstrap-sass', '~> 3.3.5'
@@ -75,8 +74,5 @@ group :production do
 end
 
 group :development do
-  gem 'capistrano', '~> 3.4.0'
-  gem 'capistrano-bundler', '~> 1.1.2'
-  gem 'capistrano-rails', '~> 1.1.3'
-  gem 'capistrano-rbenv', '~> 2.0.3'
+  gem 'capistrano-rails'
 end

@@ -6,12 +6,19 @@
 
 # Ignore bundler config.
 /.bundle
+/Dockerfile
+/docker-compose.yml
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*
-!/log/.keep
+/log/*.log
 /tmp
-
-config/database.yml
-config/secrets.yml
-config/settings.yml
+/config/settings.yml
+/config/database.yml
+/public/uploads
+tags
+*.DS_Store
+.idea
