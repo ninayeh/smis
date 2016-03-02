@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  layout "no-wrapper", :only => :index
   def index
 
   end
