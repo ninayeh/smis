@@ -22,7 +22,7 @@ hr
               tr
                 td = note.title
                 td = note.updated_at
-                td = note.final_content.present?
+                td = check_final_content(note.final_content)
                 td.numeric = link_to '檢視', note
                 td.numeric = link_to '編輯', edit_note_path(note)
                 td.numeric = link_to '刪除', note, data: {:confirm => '確定刪除?'}, :method => :delete
