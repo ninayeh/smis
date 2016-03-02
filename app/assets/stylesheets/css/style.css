@@ -28,6 +28,7 @@ a:hover, a:focus {
     background: #68dff0;
     color: #fff;
 }
+
 .task-title .fa {
     color: #fff;
 }
@@ -687,14 +688,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     border-top-color: #000;
 }
 
-.log-arrow-up {
-    background: url("../img/arrow-up.png") no-repeat;
-    width: 20px;
-    height: 11px;
-    position: absolute;
-    right: 20px;
-    top: -10px;
-}
+
 
 /*----*/
 
@@ -1162,12 +1156,7 @@ PANELS CONFIGURATIONS
 
 /*WEATHER PANELS*/
 
-/* Weather 1 */
-.weather {
-	background: url(../img/weather.jpg) no-repeat center top;
-	text-align: center;
-	background-position: center center;
-}
+
 .weather i {
 	color: white;
 	margin-top: 45px;
@@ -1270,11 +1259,7 @@ PANELS CONFIGURATIONS
 
 
 /* Instagram Panel*/
-.instagram-panel {
-	background: url(../img/instagram.jpg) no-repeat center top;
-	text-align: center;
-	background-position: center center;
-}
+
 .instagram-panel i {
 	color: white;
 	margin-top: 35px;

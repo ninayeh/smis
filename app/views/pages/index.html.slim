@@ -1,8 +1,72 @@
-.page-header
-  h1 協助管理您的研究目標
-/ p 認識個實驗室的研究領域
-header.smis-header
+.intro-header
   .container
     .row
-      .col-md-12
-        = image_tag("srl.png", alt: "自我調節學習", calss: "img-responsive")
+      .col-lg-12
+        .intro-message
+          h1 論文研究歷程管理平台
+          h3 協助管理您的研究目標
+          hr.intro-divider
+          ul.list-inline.intro-social-buttons
+            li
+              = link_to '註冊', new_user_registration_path, class:'btn btn-default btn-lg'
+            li
+              = link_to '登入', user_session_path, class:'btn btn-default btn-lg'
+
+a name="services"
+.content-section-a
+  .container
+    .row
+      .col-lg-5.col-sm-6
+        hr.section-heading-spacer/
+        .clearfix
+        h2.section-heading
+          | 探索學長姐的足跡
+        p.lead
+          | 透過展示每間實驗室近三年學長姐所發表的論文題目、關鍵字，幫助尚未選擇指導教授的學生能夠透過題目及關鍵字來激發其對研究室的認識以及對研究領域的初次探索。
+      .col-lg-5.col-lg-offset-2.col-sm-6
+        = image_tag("document.png", alt: "", calss: "img-responsive")
+
+
+.content-section-b
+  .container
+    .row
+      .col-lg-5.col-lg-offset-1.col-sm-push-6.col-sm-6
+        hr.section-heading-spacer/
+        .clearfix
+        h2.section-heading
+          | 規畫個人研究歷程
+        p.lead
+          | 使用研究行事曆設定研究所各階段的目標進度及完成時間，並開始安部就班的完成研究。
+
+      .col-lg-5.col-sm-pull-6.col-sm-6
+        = image_tag("schedule.png", alt: "", calss: "img-responsive")
+
+.content-section-a
+  .container
+    .row
+      .col-lg-5.col-sm-6
+        hr.section-heading-spacer/
+        .clearfix
+        h2.section-heading
+          | 記錄研讀論文之筆記
+
+        p.lead
+          | 在不同階段學生透過平台記錄閱讀論文時筆記及所閱讀過的論文清單、並在與指導教授討論(Meeting)後留下反思回饋與結論，作為研究歷程的足跡。
+      .col-lg-5.col-lg-offset-2.col-sm-6
+        = image_tag("notebook.png", alt: "", calss: "img-responsive")
+
+.banner
+  .container
+    .row
+      .col-lg-6
+        h2 有任何問題嗎？<br>歡迎與我們聯絡。
+      .col-lg-6
+        ul.list-inline.banner-social-buttons
+          li
+            a.btn.btn-default.btn-lg href="mailto:m10309214@mail.ntust.edu.tw"
+              i.fa.fa-envelope-o.fa-fw
+              span.network-name E-mail
+          / li
+          /   a.btn.btn-default.btn-lg href="mailto:m10309214@mail.ntust.edu.tw"
+          /     i.fa.fa-comment-o.fa-fw
+          /     span.network-name 留言
