@@ -1,7 +1,7 @@
 h1 論文題目發想
 = link_to '新增題目', new_thesis_path ,class:'btn btn-default btn-sm'
 hr
-- if current_collection.blank?
+- if @theses.blank?
   = link_to "想到題目了嗎？新增題目吧", new_thesis_path
 - else
   .col-lg-12
@@ -18,7 +18,7 @@ hr
               th
 
           tbody
-            - current_collection.each do |theses|
+            - @theses.each do |theses|
               tr
                 td = theses.updated_at.to_date
                 td = theses.title

@@ -1,4 +1,9 @@
 class ThesesController < BaseController
+
+  def index
+    @theses = Thesis.where(user_id: current_user.id)
+  end
+
   def create
     @current_object = current_user.theses.new(object_params)
     if @current_object.save
