@@ -1,4 +1,8 @@
 .intro-header
+  - if notice
+    p.alert.alert-success.alert-home= notice
+  - if alert
+    p.alert.alert-danger.alert-home= alert
   .container
     .row
       .col-lg-12

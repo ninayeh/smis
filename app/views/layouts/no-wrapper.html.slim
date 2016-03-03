@@ -8,9 +8,5 @@ html
     section id="container"
       = render 'shared/nav'
       section#main-content
-        - if notice
-          p.alert.alert-success= notice
-        - if alert
-          p.alert.alert-danger= alert
         = yield
         = render 'shared/footer'
