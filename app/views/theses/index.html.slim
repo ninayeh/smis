@@ -20,7 +20,7 @@ hr
           tbody
             - current_collection.each do |theses|
               tr
-                td = theses.updated_at
+                td = theses.updated_at.to_date
                 td = theses.title
                 td = theses.published
                 td.numeric = link_to '檢視', theses
