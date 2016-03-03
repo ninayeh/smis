@@ -26,5 +26,12 @@ $(document).ready(function(){
     language: "zh-TW"
   });
 
+  $('.form_datetime').datepicker({
+    format: "yyyy-mm-dd",
+    startView: 1,
+    todayBtn: "linked",
+    language: "zh-TW"
+  });
+
 });
 
