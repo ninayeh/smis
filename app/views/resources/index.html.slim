@@ -1,25 +1,29 @@
-h1 分享
-= link_to '分享學習資源', new_resource_path ,class:'btn btn-default btn-sm'
-hr
-- if @resources.blank?
-  = link_to "有想分享的資源嗎？分享學習資源", new_note_path
-- else
+.container
   .col-lg-12
-    .content-panel
-      section#no-more-tables
-        table.table.table-bordered.table-striped.table-condensed.cf
-          thead.cf
-            tr
-              th 名稱
-              th 分享者
-              th
+    h1 分享學習資源
+    = link_to '分享學習資源', new_resource_path , class:'btn btn-default btn-sm'
+    h5 知道什麼好的學習資源嘛？分享給大家知道。
 
-
-          tbody
-            - @resources.each do |res|
+    - if @resources.blank?
+      = link_to "有想分享的資源嗎？分享學習資源", new_note_path
+    - else
+      .content-panel
+        section#no-more-tables
+          table.table.table-striped
+            thead.cf
               tr
-                td = res.title
-                td = res.user.name
-                td.numeric = link_to '檢視', res
+                th 名稱
+                th 簡介
+                th 分享者
+                th
+
+
+            tbody
+              - @resources.each do |res|
+                tr
+                  td = res.title
+                  td = res.description
+                  td = res.user.name
+                  td.numeric = link_to '檢視', res, class:'btn btn-default btn-sm'
 
 

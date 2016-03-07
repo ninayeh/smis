@@ -12,7 +12,7 @@ class ResourcesController < ApplicationController
 
   def create
     @resource = current_user.resources.new(resource_params)
-    @resource.published = false
+    @resource.published = true
     if @resource.save
       redirect_to @resource, notice: '您的筆記已紀錄成功！'
     else

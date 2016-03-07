@@ -1,8 +1,14 @@
-= simple_form_for(@resource) do |f|
-  = f.error_notification
-  = f.input :title
-  = f.input :description
-  = f.input :url
-  = f.input :file , label: '檔案' , as: :file
-  .form-actions
-    = f.button :submit
+hr
+.container
+  .col-md-9.col-md-offset-1
+    .content-panel
+      .content-panel-text
+        h1 分享學習資源
+        = simple_form_for(@resource) do |f|
+          = f.error_notification
+          = f.input :title, label: '學習資源名稱'
+          = f.input :description, label: '學習資源簡介'
+          = f.input :url, label: '學習資源網址'
+          = f.input :file , label: '學習資源檔案' , as: :file, class:'btn btn-default btn-sm'
+          .form-actions
+            = f.button :submit, label: '送出'

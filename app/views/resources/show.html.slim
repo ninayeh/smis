@@ -1,7 +1,15 @@
-h1 = @resource.title
+hr
+.container
+  .col-md-6.col-md-offset-3
+    .content-panel
+      .content-panel-text
+        | 學習資源名稱：
+        = @resource.title
+      .content-panel-text
+        | 學習資源簡介：
+      .content-panel-text
+        = @resource.description
+      .content-panel-text
+        = link_to_file(@resource)
 
-h3 內容
-.content-panel
-  .content-panel-text = @resource.description
-
-= link_to '返回', resources_path
+      = link_to '返回', resources_path, class:'btn btn-default btn-sm content-panel-text'
