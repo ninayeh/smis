@@ -1,0 +1,9 @@
+h1 學習資源資訊
+= link_to "編輯" ,edit_backend_resource_path ,class:'btn btn-success btn-default'
+hr
+.content-panel
+  .content-panel-text
+    h1 = current_object.title
+    h3 = current_object.user.name
+
+= link_to "返回列表" ,backend_laboratories_path ,class:'btn btn-primary'

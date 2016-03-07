@@ -31,5 +31,6 @@ Rails.application.routes.draw do
     resources :departments, skip: [:show]
     resources :laboratories
     resources :users
+    resources :resources
   end
 end
