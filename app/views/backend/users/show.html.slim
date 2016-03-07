@@ -22,5 +22,30 @@ div.row
         tr
           td 上次登入時間
           td = current_object.last_sign_in_at
+        tr
+          td 系級
+          td = current_object.department.name
+        tr
+          td 實驗室
+          td = lab(current_object)
+
+    - if @missions.nil?
+      p 尚未建立
+    - else
+      .panel.panel-default
+        table.table
+          thead
+            tr
+              th 目標
+              th 開始日期
+              th 完成日期
+
+          tbody
+            - @missions.each do |mission|
+              tr
+                td = mission.title
+                td = mission.start_date
+                td = mission.end_date
+
 
     = link_to '返回', backend_users_path, class:'btn btn-primary'
