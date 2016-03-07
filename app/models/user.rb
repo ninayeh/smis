@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   has_many :theses
   belongs_to :department
   belongs_to :laboratory
+  has_many :resources
 end

@@ -10,6 +10,5 @@ class PagesController < ApplicationController
   def learning
   end
 
-  def resouece
-  end
+
 end

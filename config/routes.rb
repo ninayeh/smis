@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get 'pages/index'
   get 'about', to:'pages#about'
   get 'learning', to:'pages#learning'
-  get 'resouece', to:'pages#resouece'
 
 
   resources :notes
@@ -21,6 +20,7 @@ Rails.application.routes.draw do
   resources :missions, only: [:show, :edit, :update, :destroy]
   resources :laboratories,only: [:index, :show]
   resources :theses
+  resources :resources,only:[:index, :show, :new, :create]
 
   # 沒有使用到的
   resources :shares
