@@ -30,7 +30,8 @@ div.row
           td = lab(current_object)
 
     - if @missions.nil?
-      p 尚未建立
+      .panel.panel-default
+        .panel-heading 尚未建立研究歷程
     - else
       .panel.panel-default
         table.table
@@ -47,5 +48,25 @@ div.row
                 td = mission.start_date
                 td = mission.end_date
 
+    - if @notes.nil?
+      .panel.panel-default
+        .panel-heading 尚未建立筆記
+    - else
+      .panel.panel-default
+        table.table
+          thead
+            tr
+              th 標題
+              th 建立日期
+              th 是否填寫反思筆記
+              / th
+
+          tbody
+            - @notes.each do |note|
+              tr
+                td = note.title
+                td = note.updated_at
+                td = check_final_content(note.final_content)
+                / td.numeric = link_to '檢視', note_path(note)
 
     = link_to '返回', backend_users_path, class:'btn btn-primary'
