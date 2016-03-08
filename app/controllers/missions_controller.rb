@@ -1,8 +1,25 @@
 class MissionsController < ApplicationController
   before_action :set_mission, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  def show
+  def new
+    @mission = Mission.new
+  end
 
+  def create
+    @mission = Mission.new(mission_params)
+    @this_schedule = Schedule.find_by(user_id: current_user.id)
+    @mission.schedule_id = @this_schedule.id
+    respond_to do |format|
+      if @mission.save
+        format.html { redirect_to schedules_path, notice: '您的目標已建立成功！' }
+        format.json { render :show, status: :created, location: @mission }
+      else
+        format.html { render :new }
+        format.json { render json: @mission.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  def show
   end
 
   def edit
@@ -22,7 +39,11 @@ class MissionsController < ApplicationController
   end
 
   def destroy
-
+    @mission.destroy
+    respond_to do |format|
+      format.html { redirect_to schedules_path, notice: '您的目標已刪除成功！' }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -31,6 +52,6 @@ class MissionsController < ApplicationController
     end
 
     def mission_params
-      params.require(:mission).permit(:title, :start_date, :end_date, :user_id)
+      params.require(:mission).permit(:title, :start_date, :end_date, :schedule_id)
     end
 end

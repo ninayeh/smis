@@ -1,35 +1,46 @@
-h1 安排論文進度
-
-#sandbox-container.col-md-12
-/ .col-md-12
-- if @missions.nil?
-  = link_to "還沒建立計畫嗎？點選開始建立研究規劃吧！", new_schedule_path
-- else
-  .col-md-12.mb
-    .content-panel
-      table.table
-        thead
-          tr
-            th 目標
-            th 開始日期
-            th 完成日期
-            th
-            th
-            th
-
-        tbody
-          - @missions.each do |mission|
+.container
+  .col-md-12
+    h1 安排論文進度
+  - if @missions.nil?
+    = link_to "還沒建立計畫嗎？點選開始建立研究規劃吧！", new_schedule_path
+  - else
+    .col-md-12.mb
+      = link_to clean_schedule_path(@schedules), data: {:confirm => '確定清除整份計畫嗎?(此動作無法還原喔)'},:method => :post, class:'btn btn-danger btn-sm'
+        i.fa.fa-trash-o.fa-lg
+        span  刪除計畫
+      .content-panel
+        = link_to new_mission_path, class:'btn btn-success btn-sm'
+          i.fa.fa-plus.fa-lg
+          span  新增任務
+        table.table
+          thead
             tr
-              td = mission.title
-              td = mission.start_date
-              td = mission.end_date
-              / td = link_to 'Show', mission_path(mission)
-              td = link_to '編輯',edit_mission_path(mission)
-              td = link_to '刪除', mission_path(mission), data: {:confirm => 'Are you sure?'}, :method => :delete
+              th 目標
+              th 開始日期
+              th 完成日期
+              th
+              th
+              th
 
-  .col-md-12.mb
-    .content-panel
-      #calendar
+          tbody
+            - @missions.each do |mission|
+              tr
+                td = mission.title
+                td = mission.start_date
+                td = mission.end_date
+                / td = link_to 'Show', mission_path(mission)
+                td
+                  = link_to edit_mission_path(mission), class:'btn btn-success btn-sm'
+                    i.fa.fa-pencil-square-o.fa-lg
+
+                td
+                  = link_to mission_path(mission), data: {:confirm => '確定刪除這個目標?(此動作無法還原喔)'}, :method => :delete, class:'btn btn-danger btn-sm'
+                    i.fa.fa-trash-o.fa-lg
+
+
+    .col-md-12.mb
+      .content-panel
+        #calendar
 
 
 

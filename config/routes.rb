@@ -14,10 +14,14 @@ Rails.application.routes.draw do
 
   resources :notes
   # resources :book_lists
-  resources :schedules
+  resources :schedules do
+    member do
+      post 'clean' , to: 'schedules#clean'
+    end
+  end
   post 'schedules/recieve', to: 'schedules#recieve'
   resources :users, only: [:show]
-  resources :missions, only: [:show, :edit, :update, :destroy]
+  resources :missions, skip: [:index]
   resources :laboratories,only: [:index, :show]
   resources :theses
   resources :resources,only:[:index, :show, :new, :create]

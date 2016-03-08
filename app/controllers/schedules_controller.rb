@@ -1,11 +1,10 @@
 class SchedulesController < ApplicationController
-  # before_action :set_note, only: [:show, :edit, :update, :destroy]
-  # Devise controller filters and helpers
+  before_action :set_schedule, only: [:clean]
   before_action :authenticate_user!
 
   def index
     @schedules = Schedule.find_by(user_id: current_user.id)
-    unless @schedules.nil?
+    if @schedules.published?
       @missions = Mission.where(schedule_id: @schedules.id).order(end_date: :asc)
     end
 
@@ -17,6 +16,7 @@ class SchedulesController < ApplicationController
 
   def recieve
     @schedule = current_user.schedules.new(object_params)
+    @schedule.published = true
     @schedule.save
 
     @start = object_params['start_date'].to_date
@@ -45,10 +45,19 @@ class SchedulesController < ApplicationController
     redirect_to schedules_path
   end
 
+  def clean
+    @schedule.published = false
+    @schedule.save
+    redirect_to schedules_path, notice: '您的學習歷程已清除！'
+  end
+
   private
+    def set_schedule
+      @schedule = Schedule.find(params[:id])
+    end
 
     def object_params
-      params.require(:schedule).permit(:start_date, :end_date)
+      params.require(:schedule).permit(:start_date, :end_date, :published)
     end
 
 end

@@ -1,0 +1,12 @@
+.row.mt
+  .col-lg-12
+    .form-panel
+      h1 新增目標任務
+      = simple_form_for(@mission) do |f|
+        = f.error_notification
+        = f.input :title, label:'標題'
+        = f.input :start_date ,as: :date_time_picker, label: '開始日期'
+        = f.input :end_date ,as: :date_time_picker , label: '完成日籍'
+
+        .form-actions
+          = f.button :submit
