@@ -10,13 +10,17 @@
 
 
 
+
 //= require_tree ./plugins
 //= require_tree .
 
 $(document).ready(function(){
-  $('.content').redactor({
+  $('.redactor').redactor({
     minHeight: 300,
-    lang: 'zh_tw'
+    lang: 'zh_tw',
+    imageUpload: '/redactor_images',
+    imageUploadParam: 'redactor_image[image]'
+
   });
 
   $('.sc_date').datepicker({

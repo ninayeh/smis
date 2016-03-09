@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   resources :laboratories,only: [:index, :show]
   resources :theses
   resources :resources,only:[:index, :show, :new, :create]
+  # get 'redactor_images', to:'redactor_images#create'
+  # post 'redactor_images', to:'redactor_images#create'
+  resources :redactor_images, only: :create
 
   # 沒有使用到的
   resources :shares
