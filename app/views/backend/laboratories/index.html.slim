@@ -12,7 +12,8 @@ hr
         thead.cf
           tr
             th 名稱
-            th 系級
+            th 指導教授
+            th 系所
             th
             th.numeric
             th.numeric
@@ -21,6 +22,7 @@ hr
           - current_collection.each do |laboratory|
             tr
               td = laboratory.name
+              td = laboratory.professor_name
               td = laboratory.department.name
               td.numeric = link_to '檢視', backend_laboratory_path(laboratory) ,class:'btn btn-success btn-xs'
               td.numeric = link_to '編輯', edit_backend_laboratory_path(laboratory) ,class:'btn btn-success btn-xs'

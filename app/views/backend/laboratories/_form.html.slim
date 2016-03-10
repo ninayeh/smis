@@ -1,4 +1,4 @@
-p hello
+p
 = simple_form_for [:backend, current_object] do |f|
   = f.error_notification
   = f.input :name , label: '實驗室名稱'
@@ -6,6 +6,6 @@ p hello
                 prompt: "請選擇", label: '系所'
   = f.input :professor_name
   = f.input :avatar, as: :file
-  = f.input :description,as: :text, input_html: {class: 'content'}
+  = f.input :description,as: :text, input_html: {class: 'redactor'}
   .form-actions
     = f.button :submit

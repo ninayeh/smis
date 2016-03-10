@@ -14,7 +14,7 @@ class ResourcesController < ApplicationController
     @resource = current_user.resources.new(resource_params)
     @resource.published = true
     if @resource.save
-      redirect_to @resource, notice: '您的筆記已紀錄成功！'
+      redirect_to @resource, notice: '您的分享的資源已送出，經確認後就會分享給大家囉！'
     else
       render :new
     end
