@@ -1,8 +1,8 @@
-h1 修改筆記
+.container
+  .col-md-10.col-md-offset-1
+    h1 修改筆記
 
-== render 'form'
+    == render 'form'
 
-= link_to 'Show', @note
-'|
-= link_to 'Back', notes_path
+    = link_to '返回到所有筆記', notes_path, class:'btn btn-default'
 

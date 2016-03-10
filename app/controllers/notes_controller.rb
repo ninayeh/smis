@@ -58,7 +58,7 @@ class NotesController < ApplicationController
   def destroy
     @note.destroy
     respond_to do |format|
-      format.html { redirect_to notes_url, notice: 'Note was successfully destroyed.' }
+      format.html { redirect_to notes_url, notice: '您的筆記已刪除。' }
       format.json { head :no_content }
     end
   end

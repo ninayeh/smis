@@ -1,7 +1,9 @@
 .container
   .col-md-10.col-md-offset-1
     h1 = @note.title
-    = link_to '編輯', edit_note_path(@note),class:'btn btn-default'
+    .btn-group
+      = link_to '編輯', edit_note_path(@note),class:'btn btn-default'
+      = link_to '返回', notes_path,class:'btn btn-default '
     p.mt 建立日期：#{@note.created_at.to_date}
       | 上次修改日期：#{@note.updated_at.to_date}
 
@@ -14,7 +16,7 @@
     .content-panel.notes
       .content-panel-text = sanitize_content(@note.final_content)
 
-    = link_to '返回', notes_path,class:'btn btn-default mt'
+
 
 
   .col-md-10.col-md-offset-1.mt

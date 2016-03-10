@@ -24,7 +24,7 @@
                   td = note.title
                   td = note.updated_at
                   td = check_final_content(note.final_content)
-                  td.numeric = link_to '檢視', note
-                  td.numeric = link_to '編輯', edit_note_path(note)
-                  td.numeric = link_to '刪除', note, data: {:confirm => '確定刪除?'}, :method => :delete
+                  td.numeric = link_to '檢視', note, class:'btn btn-default btn-sm'
+                  td.numeric = link_to '編輯', edit_note_path(note), class:'btn btn-success btn-sm'
+                  td.numeric = link_to '刪除', note, data: {:confirm => '確定刪除?'}, :method => :delete, class:'btn btn-danger btn-sm'
 
