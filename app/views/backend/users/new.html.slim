@@ -1,8 +1,14 @@
-h1 新增使用者
-= simple_form_for current_object, url: backend_users_path do |f|
-  = f.input :email, label: '信箱'
-  = f.input :password, label: '密碼'
-  = f.input :password_confirmation, label: '再次輸入密碼'
-  = f.submit class: "btn btn-primary"
-
-
+.container.mt
+  .col-md-9.col-md-offset-1
+    .content-panel
+      .content-panel-text
+        h1 新增使用者
+        = simple_form_for current_object, url: backend_users_path do |f|
+          = f.input :name, required: true, label: '姓名'
+          = f.input :email, label: '信箱'
+          = f.association :department,required: true,
+                           autofocus: true, prompt: "請選擇", label: '系所'
+          = f.association :laboratory, autofocus: true, prompt: "請選擇", label: '實驗室'
+          = f.input :password, label: '密碼'
+          = f.input :password_confirmation, label: '再次輸入密碼'
+          = f.button :submit, "新增使用者", class: "btn btn-default"

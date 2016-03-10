@@ -1,72 +1,72 @@
-div.row
-  div.col-lg-12
-    h1.page-header
-      | 使用者檢視
+.container
+  .row
+    .col-lg-12
+      h1.page-header
+        | 使用者檢視
+      = link_to '編輯', {action: :edit, id: current_object.id} ,class:'btn btn-default'
 
-div.row
-  div.col-lg-12
-    div.panel.panel-default
-      div.panel-heading
-        h4 使用者 ##{current_object.id}
-      table.table.table-hover.table-bordered
-        tr
-          td.col-sm-3.col-md-2 Name
-          td = current_object.name
-        tr
-        tr
-          td.col-sm-3.col-md-2 Email
-          td = current_object.email
-        tr
-          td 登入次數
-          td = current_object.sign_in_count
-        tr
-          td 上次登入時間
-          td = current_object.last_sign_in_at
-        tr
-          td 系級
-          td = current_object.department.name
-        tr
-          td 實驗室
-          td = lab(current_object)
+  div.row
+    div.col-lg-12
+      div.panel.panel-default
+        div.panel-heading
+          h4 使用者 ##{current_object.id}
+        table.table.table-hover.table-bordered
+          tr
+            td.col-sm-3.col-md-2 Name
+            td = current_object.name
+          tr
+          tr
+            td.col-sm-3.col-md-2 Email
+            td = current_object.email
+          tr
+            td 登入次數
+            td = current_object.sign_in_count
+          tr
+            td 上次登入時間
+            td = current_object.last_sign_in_at
+          tr
+            td 系級
+            td = current_object.department.name
+          tr
+            td 實驗室
+            td = lab(current_object)
 
-    - if @missions.nil?
-      .panel.panel-default
-        .panel-heading 尚未建立研究歷程
-    - else
-      .panel.panel-default
-        table.table
-          thead
-            tr
-              th 目標
-              th 開始日期
-              th 完成日期
-
-          tbody
-            - @missions.each do |mission|
+      - if @missions.nil?
+        .panel.panel-default
+          .panel-heading 尚未建立研究歷程
+      - else
+        .panel.panel-default
+          table.table
+            thead
               tr
-                td = mission.title
-                td = mission.start_date
-                td = mission.end_date
+                th 目標
+                th 開始日期
+                th 完成日期
 
-    - if @notes.nil?
-      .panel.panel-default
-        .panel-heading 尚未建立筆記
-    - else
-      .panel.panel-default
-        table.table
-          thead
-            tr
-              th 標題
-              th 建立日期
-              th 是否填寫反思筆記
-              / th
+            tbody
+              - @missions.each do |mission|
+                tr
+                  td = mission.title
+                  td = mission.start_date
+                  td = mission.end_date
 
-          tbody
-            - @notes.each do |note|
+      - if @notes.nil?
+        .panel.panel-default
+          .panel-heading 尚未建立筆記
+      - else
+        .panel.panel-default
+          table.table
+            thead
               tr
-                td = note.title
-                td = note.updated_at
-                td = check_final_content(note.final_content)
-                / td.numeric = link_to '檢視', note_path(note)
+                th 標題
+                th 建立日期
+                th 是否填寫反思筆記
 
-    = link_to '返回', backend_users_path, class:'btn btn-primary'
+            tbody
+              - @notes.each do |note|
+                tr
+                  td = note.title
+                  td = note.updated_at
+                  td = check_final_content(note.final_content)
+
+      = link_to '返回使用者列表', backend_users_path, class:'btn btn-primary'

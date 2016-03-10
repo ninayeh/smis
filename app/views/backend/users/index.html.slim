@@ -1,30 +1,29 @@
-h1 使用者名稱列表
-= link_to '新增使用者', {action: 'new'}, class: 'btn btn-success'
-hr
-.col-lg-12
-  .content-panel
-    h4 使用者列表
-    section#no-more-tables
-    .table-responsive
-      table.table.table-bordered.table-striped.table-condensed.cf
-        thead.cf
-          tr
-            th ID
-            th 使用者名稱
-            th 研究室
-            th email
-            th 權限
-            th colspan="3"
-        tbody
-          - current_collection.each do |user|
+.container
+  .col-lg-12
+    h1 使用者名稱列表
+    = link_to '新增使用者', {action: 'new'}, class: 'btn btn-success'
+    hr
+    .content-panel
+      h4 使用者列表
+      section#no-more-tables
+      .table-responsive
+        table.table.table-striped.table-hover
+          thead.cf
             tr
-              td = user.id
-              td = user.name
-              td = user.try(:laboratory).try(:name)
-              td = user.email
-              td = user.role
-              td = link_to '顯示', {action: :show, id: user.id} ,class:'btn btn-success btn-xs'
-              td = link_to '編輯', {action: :edit, id: user.id} ,class:'btn btn-success btn-xs'
-              td = link_to '刪除', {action: :destroy, id: user.id}, method: :delete, data: {confirm: 'Are you sure?'}  ,class:'btn btn-danger btn-xs'
-/ .text-center
-  / = paginate current_collection, theme: 'bootstrap3', window: 3
+              th ID
+              th 使用者名稱
+              th 研究室
+              th email
+              th 權限
+              th colspan="3"
+          tbody
+            - current_collection.each do |user|
+              tr
+                td = user.id
+                td = user.name
+                td = user.try(:laboratory).try(:name)
+                td = user.email
+                td = user.role
+                td = link_to '顯示', {action: :show, id: user.id} ,class:'btn btn-success btn-xs'
+                td = link_to '編輯', {action: :edit, id: user.id} ,class:'btn btn-success btn-xs'
+                td = link_to '刪除', {action: :destroy, id: user.id}, method: :delete, data: {confirm: 'Are you sure?'}  ,class:'btn btn-danger btn-xs'
