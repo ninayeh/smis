@@ -4,7 +4,8 @@ hr
 .content-panel
   .content-panel-text
     h1 = current_object.title
+    h3 = current_object.description
     h3 = current_object.user.name
     h3 = link_to_file(current_object)
 
-= link_to "返回列表" ,backend_laboratories_path ,class:'btn btn-primary'
+= link_to "返回列表" ,backend_resources_path ,class:'btn btn-primary'

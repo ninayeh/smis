@@ -23,7 +23,7 @@
                 tr
                   td = res.title
                   td = res.description
-                  td = res.user.name
+                  td = res.try(:user).try(:name)
                   td.numeric = link_to '檢視', res, class:'btn btn-default btn-sm'
 
 
