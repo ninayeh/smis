@@ -1,0 +1,87 @@
+.container
+  .col-lg-12
+    .panel.panel-default
+      .panel-heading
+        h4 使用者
+      table.table.table-hover.table-bordered
+        tr
+          td.col-sm-3.col-md-2 姓名
+          td = @user.name
+        tr
+        tr
+          td.col-sm-3.col-md-2 Email
+          td = @user.email
+        tr
+          td 系級
+          td = @user.department.name
+        tr
+          td 實驗室
+          td = lab(@user)
+
+    - if @missions.nil?
+      .panel.panel-default
+        .panel-heading 尚未建立研究歷程
+    - else
+      .panel.panel-default
+        .panel-heading
+          h4 研究歷程
+        table.table
+          thead
+            tr
+              th 目標
+              th 開始日期
+              th 完成日期
+
+          tbody
+            - @missions.each do |mission|
+              tr
+                td = mission.title
+                td = mission.start_date
+                td = mission.end_date
+
+    - if @notes.nil?
+      .panel.panel-default
+        .panel-heading 尚未建立筆記
+    - else
+      .panel.panel-default
+        .panel-heading
+          h4 筆記
+        table.table
+          thead
+            tr
+              th 標題
+              th 建立日期
+              th 是否填寫反思筆記
+              / th
+
+          tbody
+            - @notes.each do |note|
+              tr
+                td = note.title
+                td = note.updated_at
+                td = check_final_content(note.final_content)
+                td.numeric = link_to '檢視', note_path(note)
+    - if @theses.nil?
+      .panel.panel-default
+        .panel-heading 尚未建立論文發想
+    - else
+      .panel.panel-default
+        .panel-heading
+          h4 論文發想歷程
+        table.table
+          thead
+            tr
+              th 標題
+              th 建立日期
+              th
+
+          tbody
+            - @theses.each do |thsis|
+              tr
+                td = thsis.title
+                td = thsis.updated_at
+                / td = check_final_content(note.final_content)
+                td.numeric = link_to '檢視', thesis_path(thsis)
+
+    = link_to '返回', users_path, class:'btn btn-primary'
+

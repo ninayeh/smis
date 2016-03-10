@@ -1,5 +1,5 @@
 class ThesesController < BaseController
-
+  # authorize_resource :thesis
   def index
     @theses = Thesis.where(user_id: current_user.id)
   end

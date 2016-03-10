@@ -4,6 +4,23 @@ class UsersController < ApplicationController
   def index
     @users = User.where(role: 'admin')
   end
+  #issue
+  def save
+    if !params[:id].nil?
+      @user = User.where(role: 'admin').find(params[:id])
+    else
+      redirect_to users_path
+    end
+
+    @schedules = Schedule.find_by(user_id: params[:id])
+
+    unless @schedules.nil?
+      @missions = Mission.where(schedule_id: @schedules.id).order(end_date: :asc)
+    end
+    @notes = Note.where(user_id: params[:id]).order(updated_at: :asc)
+    @theses = Thesis.where(user_id: params[:id]).order(updated_at: :asc)
+  end
+
   def show
 
   end

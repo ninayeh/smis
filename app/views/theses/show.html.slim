@@ -9,7 +9,8 @@
         = current_object.content
         = link_to_book_list(current_object)
         = link_to_slide(current_object)
-    .btn-group.btn-group-justified
-      = link_to '編輯', edit_thesis_path(current_object),class:'btn btn-default'
-      = link_to '返回', theses_path,class:'btn btn-default '
+    / - if can? :update, @current_object
+    /   .btn-group.btn-group-justified
+    /     = link_to '編輯', edit_thesis_path(current_object),class:'btn btn-default'
+    /     = link_to '返回', theses_path,class:'btn btn-default '
 

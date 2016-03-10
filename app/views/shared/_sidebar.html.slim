@@ -27,8 +27,12 @@ aside
           span 認識研究室
       li
         = link_to resources_path
-          i.fa.fa-flask
+          i.fa.fa-share-alt
           span 分享學習資源
+      li.sub-menu
+        = link_to users_path
+          i.fa.fa-graduation-cap
+          span 學長姊足跡參考
       li
         = link_to schedules_path
           i.fa.fa-calendar
@@ -41,6 +45,7 @@ aside
         = link_to theses_path
           i.fa.fa-cogs
           span 論文題目發想
+
         / ul.sub
         /   li = link_to '> 書單', theses_path
         /   li = link_to '> 筆記', theses_path

@@ -20,13 +20,16 @@ Rails.application.routes.draw do
     end
   end
   post 'schedules/recieve', to: 'schedules#recieve'
-  resources :users, only: [:show]
+  resources :users, only: [:index, :show] do
+    member do
+      get 'save', to: 'users#save'
+    end
+  end
   resources :missions, skip: [:index]
   resources :laboratories,only: [:index, :show]
   resources :theses
   resources :resources,only:[:index, :show, :new, :create]
-  # get 'redactor_images', to:'redactor_images#create'
-  # post 'redactor_images', to:'redactor_images#create'
+
   resources :redactor_images, only: :create
 
   # 沒有使用到的
