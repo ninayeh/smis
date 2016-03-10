@@ -1,5 +1,4 @@
-hr
-.container
+.container.mt
   .col-md-6.col-md-offset-3
     .content-panel
       .content-panel-text
@@ -9,6 +8,9 @@ hr
         | 學習資源簡介：
       .content-panel-text
         = @resource.description
+      .content-panel-text
+        | 網址：
+        = @resource.url
       .content-panel-text
         = link_to_file(@resource)
 

@@ -5,6 +5,6 @@ class Backend::ResourcesController < Backend::BaseController
   end
 
   def object_params
-    params.require(:resource).permit(:title, :url, :file, :description, :published, :user)
+    params.require(:resource).permit(:title, :url, :file, :description, :published, :user_id)
   end
 end

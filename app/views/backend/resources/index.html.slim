@@ -1,28 +1,28 @@
-h1 Learning Resources
-= link_to '新增', new_backend_resource_path, class:'btn btn-success'
-hr
-.col-lg-12
-  .content-panel
-    h4
-      i.fa.fa-angle-right
-      | Learning Resource management
-
-    section#no-more-tables
-      table.table.table-bordered.table-striped.table-condensed.cf
-        thead.cf
-          tr
-            th 名稱
-            th 發佈狀態
-            th
-            th.numeric
-            th.numeric
-
-        tbody
-          - current_collection.each do |res|
+.container
+  .col-lg-12
+    h1 學習資源後台管理
+    = link_to '新增', new_backend_resource_path, class:'btn btn-success'
+    hr
+    .content-panel
+      section#no-more-tables
+        table.table.table-striped
+          thead.cf
             tr
-              td = res.title
-              td = res.published
-              td.numeric = link_to '檢視', backend_resource_path(res),
-              class:'btn btn-success btn-xs'
-              td.numeric = link_to '編輯', edit_backend_resource_path(res) ,class:'btn btn-success btn-xs'
-              td.numeric = link_to '刪除', backend_resource_path(res), method: :delete, data: {confirm: 'Are you sure?'}  ,class:'btn btn-danger btn-xs'
+              th 名稱
+              th 提供者
+              th 發佈狀態
+              th
+              th.numeric
+              th.numeric
+
+          tbody
+            - current_collection.each do |res|
+              tr
+                td = res.title
+                td = res.user.name
+                td = res.published
+                td.numeric = link_to '檢視', backend_resource_path(res),
+                                             class:'btn btn-success btn-xs'
+                td.numeric = link_to '編輯', edit_backend_resource_path(res) ,
+                                              class:'btn btn-success btn-xs'
+                td.numeric = link_to '刪除', backend_resource_path(res), method: :delete, data: {confirm: 'Are you sure?'}  ,class:'btn btn-danger btn-xs'

@@ -1,11 +1,23 @@
-h1 學習資源資訊
-= link_to "編輯" ,edit_backend_resource_path ,class:'btn btn-success btn-default'
-hr
-.content-panel
-  .content-panel-text
-    h1 = current_object.title
-    h3 = current_object.description
-    h3 = current_object.user.name
-    h3 = link_to_file(current_object)
-
-= link_to "返回列表" ,backend_resources_path ,class:'btn btn-primary'
+.container.mt
+  .col-md-6.col-md-offset-3
+    h1 學習資源資訊
+    .content-panel
+      .content-panel-text
+        | 學習資源名稱：
+        = current_object.title
+      .content-panel-text
+        | 提供者：
+        = current_object.user.name
+      .content-panel-text
+        | 學習資源簡介：
+      .content-panel-text
+        = current_object.description
+      .content-panel-text
+        | 網址：
+        = open_link(current_object)
+      .content-panel-text
+        = link_to_file(current_object)
+    .btn-group.btn-group-justified
+      = link_to "編輯" ,edit_backend_resource_path ,class:'btn btn-success'
+      = link_to "返回列表", backend_resources_path, class:'btn btn-default'
+      = link_to "前台畫面" , resource_path(current_object) ,class:'btn btn-default', target:"_blank"

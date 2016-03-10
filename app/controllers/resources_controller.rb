@@ -30,6 +30,6 @@ class ResourcesController < ApplicationController
     end
 
     def resource_params
-      params.require(:resource).permit(:title, :rul, :file, :description, :published, :user)
+      params.require(:resource).permit(:title, :url, :file, :description, :published, :user_id)
     end
 end
