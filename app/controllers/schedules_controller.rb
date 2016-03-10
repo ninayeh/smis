@@ -4,7 +4,9 @@ class SchedulesController < ApplicationController
 
   def index
     @schedules = Schedule.find_by(user_id: current_user.id)
-    if @schedules.published?
+    # if @schedules.nil?
+
+    if !@schedules.nil? && @schedules.published?
       @missions = Mission.where(schedule_id: @schedules.id).order(end_date: :asc)
     end
 

@@ -1,12 +1,13 @@
 .row.mt
   .col-lg-12
     .form-panel
-      h1 編輯目標任務
+      h1 編輯目標
       = simple_form_for(@mission) do |f|
         = f.error_notification
-        = f.input :title, label:'標題'
+        = f.input :title, label:'目標名稱'
         = f.input :start_date ,as: :date_time_picker, label: '開始日期'
         = f.input :end_date ,as: :date_time_picker , label: '完成日籍'
 
         .form-actions
-          = f.button :submit
+          = f.button :submit, '修改目標'
+      = link_to '返回', schedules_path, class:'btn btn-default'

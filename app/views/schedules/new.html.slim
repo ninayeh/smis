@@ -1,19 +1,22 @@
-h1 計算畢業日期
-#sandbox-container.col-md-12
-  form action="/schedules/recieve" accept-charset="UTF-8" method="post"
-    input name="UTF-8" type="hidden" value="✓"
-    input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"
-    .input-group
-      span.input-group-addon#basic-addon1
-        | 開始日期：
-      input.form-control.sc_date type="text" placeholder="#{Date.today}" aria-describedby="basic-addon1" data-provide='datepicker' name="schedule[start_date]" value="#{Date.today}"
-    br
-    .input-group
-      span.input-group-addon#basic-addon1
-        | 畢業日期：
-      input.form-control.sc_date type="text" placeholder="選擇預計畢業日期" aria-describedby="basic-addon1" data-provide='datepicker' name="schedule[end_date]"
-    br
-      input.btn.btn-default type="submit" value="Submit" name="commit"
+.col-md-9.col-md-offset-1.mt
+  .content-panel
+    .content-panel-text
+      h1 計算畢業日期
+      #sandbox-container.col-md-12
+      form action="/schedules/recieve" accept-charset="UTF-8" method="post"
+        input name="UTF-8" type="hidden" value="✓"
+        input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"
+        .input-group
+          span.input-group-addon#basic-addon1
+            | 開始日期：
+          input.form-control.sc_date type="text" placeholder="#{Date.today}" aria-describedby="basic-addon1" data-provide='datepicker' name="schedule[start_date]" value="#{Date.today}"
+        br
+        .input-group
+          span.input-group-addon#basic-addon1
+            | 畢業日期：
+          input.form-control.sc_date type="text" placeholder="選擇預計畢業日期" aria-describedby="basic-addon1" data-provide='datepicker' name="schedule[end_date]"
+        br
+          input.btn.btn-default type="submit" value="開始計算" name="commit"
 
 
 
