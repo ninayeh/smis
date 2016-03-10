@@ -1151,7 +1151,9 @@ PANELS CONFIGURATIONS
 .content-panel h4 {
   margin-left: 10px;
 }
-
+.content-panel.notes {
+  min-height: 300px;
+}
 
 /*WEATHER PANELS*/
 
