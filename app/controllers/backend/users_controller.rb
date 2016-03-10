@@ -7,6 +7,7 @@ class Backend::UsersController < Backend::BaseController
       @missions = Mission.where(schedule_id: @schedules.id).order(end_date: :asc)
     end
     @notes = Note.where(user_id: params[:id]).order(updated_at: :asc)
+    @theses = Thesis.where(user_id: params[:id]).order(updated_at: :asc)
   end
   private
   def collection_scope

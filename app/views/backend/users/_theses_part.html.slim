@@ -1,0 +1,21 @@
+- if @theses.nil?
+  .panel.panel-default
+    .panel-heading 尚未建立論文發想
+- else
+  .panel.panel-default
+    .panel-heading
+      h4 論文發想歷程
+    table.table
+      thead
+        tr
+          th 標題
+          th 建立日期
+          th
+
+      tbody
+        - @theses.each do |thsis|
+          tr
+            td = thsis.title
+            td = thsis.updated_at
+            / td = check_final_content(note.final_content)
+            td.numeric = link_to '檢視', thesis_path(thsis)

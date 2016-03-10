@@ -1,0 +1,18 @@
+- if @notes.nil?
+  .panel.panel-default
+    .panel-heading 尚未建立筆記
+- else
+  .panel.panel-default
+    table.table
+      thead
+        tr
+          th 標題
+          th 建立日期
+          th 是否填寫反思筆記
+
+      tbody
+        - @notes.each do |note|
+          tr
+            td = note.title
+            td = note.updated_at
+            td = check_final_content(note.final_content)

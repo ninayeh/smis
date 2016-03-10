@@ -1,0 +1,18 @@
+- if @missions.nil?
+  .panel.panel-default
+    .panel-heading 尚未建立研究歷程
+- else
+  .panel.panel-default
+    table.table
+      thead
+        tr
+          th 目標
+          th 開始日期
+          th 完成日期
+
+      tbody
+        - @missions.each do |mission|
+          tr
+            td = mission.title
+            td = mission.start_date
+            td = mission.end_date
