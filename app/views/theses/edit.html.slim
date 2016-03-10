@@ -1,2 +1,8 @@
-h1 編輯
-= render 'form'
+.container.mt
+  .col-md-9.col-md-offset-1
+    .content-panel
+      .content-panel-text
+        h1 編輯論文題目
+        = render 'form'
+
+        = link_to '返回到所有題目', theses_path, class:'btn btn-default'

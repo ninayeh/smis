@@ -1,9 +1,10 @@
 = simple_form_for current_object do |f|
   = f.error_notification
-  = f.input :title
-  = f.input :content
-  = f.input :book_list , label: '書單' , as: :file
-  = f.input :slide , label: '投影片' , as: :file
-  = f.input :published, input_html: {checked: true}, label: '最後論文題目'
+  .form-inputs
+    = f.input :title, label: '論文題目'
+    = f.input :content, label: '說明'
+    = f.input :book_list , label: '書單' , as: :file
+    = f.input :slide , label: '投影片' , as: :file
+    = f.input :published, input_html: {checked: true}, label: '最後論文題目'
   .form-actions
-    = f.button :submit
+    = f.button :submit, "送出"

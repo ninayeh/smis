@@ -1,29 +1,32 @@
-h1 論文題目發想
-= link_to '新增題目', new_thesis_path ,class:'btn btn-default btn-sm'
-hr
-- if @theses.blank?
-  = link_to "想到題目了嗎？新增題目吧", new_thesis_path
-- else
+.container
   .col-lg-12
-    .content-panel
-      section#no-more-tables
-        table.table.table-bordered.table-striped.table-condensed.cf
-          thead.cf
-            tr
-              th 發想日期
-              th 標題
-              th 是否為最後論文題目
-              th
-              th
-              th
-
-          tbody
-            - @theses.each do |theses|
+    h1 論文題目發想
+    = link_to '新增題目', new_thesis_path ,class:'btn btn-default'
+    hr
+    - if @theses.blank?
+      = link_to "想到題目了嗎？新增題目吧", new_thesis_path
+    - else
+      .content-panel
+        section#no-more-tables
+          table.table.table-striped
+            thead.cf
               tr
-                td = theses.updated_at.to_date
-                td = theses.title
-                td = theses.published
-                td.numeric = link_to '檢視', theses
-                td.numeric = link_to '編輯', edit_thesis_path(theses)
-                td.numeric = link_to '刪除', theses, data: {:confirm => '確定刪除?'}, :method => :delete
+                th 發想日期
+                th 標題
+                th 是否為最後論文題目
+                th
+                th
+                th
+
+            tbody
+              - @theses.each do |theses|
+                tr
+                  td = theses.updated_at.to_date
+                  td = theses.title
+                  td = theses.published
+                  td.numeric = link_to '檢視', theses, class:'btn btn-default btn-sm'
+                  td.numeric = link_to '編輯', edit_thesis_path(theses), class:'btn btn-success btn-sm'
+                  td.numeric = link_to '刪除', theses, data: {:confirm => '確定刪除?'}, :method => :delete, class:'btn btn-danger btn-sm'
+
+
 
