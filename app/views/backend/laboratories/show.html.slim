@@ -1,13 +1,23 @@
-h1 實驗室資訊
-= link_to "編輯" ,edit_backend_laboratory_path ,class:'btn btn-success btn-default'
-hr
-/ = render 'backend/shared/flash'
-.content-panel
-  .content-panel-text
-    h1 = current_object.name
-    h3 = current_object.professor_name
-    hr
-    p = sanitize_content(current_object.description)
-    = image_tag current_object.avatar_url, class: 'img-responsive'
+.container
+  .col-md-9.col-md-offset-1
+    h1 實驗室資訊
+    .panel.panel-default.mp
+      .panel-heading
+        h3 實驗室 ##{current_object.id}
+      table.table
+        tr
+          td.col-sm-3.col-md-2 實驗室名稱
+          td.col-sm-4.col-md-4 = current_object.name
+          td.text-center 教授照片
 
-= link_to "返回列表" ,backend_laboratories_path ,class:'btn btn-primary'
+        tr
+          td.col-sm-3.col-md-2 指導教授
+          td = current_object.professor_name
+          td rowspan="3"
+            = image_tag current_object.avatar_url, class: 'img-responsive'
+        tr
+          td.col-sm-3.col-md-2 實驗室介紹
+          td = sanitize_content(current_object.description)
+      .btn-group.btn-group-justified
+        = link_to "編輯" ,edit_backend_laboratory_path ,class:'btn btn-success'
+        = link_to "返回列表", backend_laboratories_path, class:'btn btn-default'

@@ -1,10 +1,9 @@
 .container
-  .col-lg-12
+  .col-md-9.col-md-offset-1
     h1 系所資訊
-    = link_to "編輯" ,backend_department_path ,class:'btn btn-success btn-default'
-    .content-panel.mp
-      .content-panel-text
-        h1 系所名稱：#{current_object.name}
+    .panel.panel-default.mp
+      .panel-heading
+        h3 系所名稱：#{current_object.name}
 
       table.table
         thead
@@ -18,5 +17,6 @@
               td = link_to lab.id, backend_laboratory_path(lab)
               td = link_to lab.name, backend_laboratory_path(lab)
               td = lab.professor_name
-    br
-    = link_to "返回列表" ,backend_departments_path ,class:'btn btn-primary'
+      .btn-group.btn-group-justified
+        = link_to "編輯" ,edit_backend_department_path ,class:'btn btn-success'
+        = link_to "返回列表", backend_departments_path, class:'btn btn-default'

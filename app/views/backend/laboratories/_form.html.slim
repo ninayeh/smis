@@ -4,8 +4,8 @@ p
   = f.input :name , label: '實驗室名稱'
   = f.association :department,required: true, autofocus: true,
                 prompt: "請選擇", label: '系所'
-  = f.input :professor_name
-  = f.input :avatar, as: :file
-  = f.input :description,as: :text, input_html: {class: 'redactor'}
+  = f.input :professor_name, label: '指導教授姓名'
+  = f.input :avatar, as: :file, label: '指導教授照片'
+  = f.input :description,as: :text, input_html: {class: 'redactor'}, label: '實驗室介紹'
   .form-actions
-    = f.button :submit
+    = f.button :submit, "送出"

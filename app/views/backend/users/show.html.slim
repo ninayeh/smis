@@ -1,12 +1,9 @@
 .container
   .row
-    .col-lg-12
-      h1.page-header
-        | 使用者檢視
-      = link_to '編輯', {action: :edit, id: current_object.id} ,class:'btn btn-default'
-
-  div.row
-    div.col-lg-12
+    .col-md-9.col-md-offset-1
+      h1 使用者檢視
+  .row
+    .col-md-9.col-md-offset-1
       div.panel.panel-default
         div.panel-heading
           h4 使用者 ##{current_object.id}
@@ -30,9 +27,11 @@
           tr
             td 實驗室
             td = lab(current_object)
+        .btn-group.btn-group-justified
+          = link_to '編輯', {action: :edit, id: current_object.id} ,class:'btn btn-success'
+          = link_to '返回使用者列表', backend_users_path, class:'btn btn-default'
 
       = render "mission_part"
       = render "note_part"
       = render "theses_part"
 
-      = link_to '返回使用者列表', backend_users_path, class:'btn btn-primary'
