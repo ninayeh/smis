@@ -12,7 +12,7 @@ class ResourcesController < ApplicationController
 
   def create
     @resource = current_user.resources.new(resource_params)
-    @resource.published = true
+    @resource.published = false;
     if @resource.save
       redirect_to @resource, notice: '您的分享的資源已送出，經確認後就會分享給大家囉！'
     else
