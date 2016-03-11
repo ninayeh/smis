@@ -10,4 +10,12 @@ module NotesHelper
       '<span class="badge bg-important"><i class=" fa fa-times "></i></span>'.html_safe
     end
   end
+
+  def check_published(resource)
+    if resource.published
+      '已發布'.html_safe
+    else
+      '未發布'.html_safe
+    end
+  end
 end

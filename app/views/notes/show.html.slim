@@ -8,6 +8,8 @@
         = link_to '返回', notes_path,class:'btn btn-default '
     p.mt 建立日期：#{@note.created_at.to_date}
       | 上次修改日期：#{@note.updated_at.to_date}
+    p.mt 發佈狀態：#{check_published(@note)}
+
 
 
     h3 內容

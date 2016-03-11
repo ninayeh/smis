@@ -3,6 +3,7 @@
 
   .form-inputs
     = f.input :title, label:'標題'
+    = f.input :published, label: '公開分享'
     = f.input :content ,as: :text, wrapper_html: {class: 'content-editor'},
               input_html: {class: 'redactor'} , label: '內容'
     = f.input :final_content ,as: :text, wrapper_html: {class: 'content-editor'},
