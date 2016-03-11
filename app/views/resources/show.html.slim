@@ -10,7 +10,7 @@
         = @resource.description
       .content-panel-text
         | 網址：
-        = @resource.url
+        = open_link(@resource)
       .content-panel-text
         = link_to_file(@resource)
 

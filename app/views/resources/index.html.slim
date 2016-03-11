@@ -5,7 +5,7 @@
     h5 知道什麼好的學習資源嘛？分享給大家知道。
 
     - if @resources.blank?
-      = link_to "有想分享的資源嗎？分享學習資源", new_note_path
+      span
     - else
       .content-panel
         section#no-more-tables
@@ -13,7 +13,7 @@
             thead.cf
               tr
                 th 名稱
-                th 簡介
+                th.col-sm-3.col-md-4 簡介
                 th 分享者
                 th
 
@@ -22,7 +22,7 @@
               - @resources.each do |res|
                 tr
                   td = res.title
-                  td = res.description
+                  td.col-sm-3.col-md-4 = res.description.at(1..100)
                   td = res.try(:user).try(:name)
                   td.numeric = link_to '檢視', res, class:'btn btn-default btn-sm'
 
