@@ -13,7 +13,7 @@
               tr
                 th 發想日期
                 th 標題
-                th 是否為最後論文題目
+                th 發佈狀態
                 th
                 th
                 th
@@ -23,7 +23,7 @@
                 tr
                   td = theses.updated_at.to_date
                   td = theses.title
-                  td = theses.published
+                  td = check_published(theses)
                   td.numeric = link_to '檢視', theses, class:'btn btn-default btn-sm'
                   td.numeric = link_to '編輯', edit_thesis_path(theses), class:'btn btn-success btn-sm'
                   td.numeric = link_to '刪除', theses, data: {:confirm => '確定刪除?'}, :method => :delete, class:'btn btn-danger btn-sm'

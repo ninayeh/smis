@@ -16,4 +16,13 @@ module ThesesHelper
       raw "<span></span>"
     end
   end
+
+  def check_published(resource)
+    if resource.published
+      '已發布'.html_safe
+    else
+      '未發布'.html_safe
+    end
+  end
+
 end
