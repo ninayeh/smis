@@ -8,9 +8,6 @@
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.zh-TW.js
 
-
-
-
 //= require_tree ./plugins
 //= require_tree .
 
