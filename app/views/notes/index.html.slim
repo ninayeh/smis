@@ -13,6 +13,7 @@
               tr
                 th 標題
                 th 修改日期
+                th 狀態
                 th 是否已填寫反思筆記
                 th
                 th
@@ -22,7 +23,8 @@
               - @notes.each do |note|
                 tr
                   td = note.title
-                  td = note.updated_at
+                  td = note.updated_at.to_date
+                  td = check_published(note)
                   td = check_final_content(note.final_content)
                   td.numeric = link_to '檢視', note, class:'btn btn-default btn-sm'
                   td.numeric = link_to '編輯', edit_note_path(note), class:'btn btn-success btn-sm'

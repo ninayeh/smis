@@ -3,7 +3,8 @@
 
   .form-inputs
     = f.input :title, label:'標題'
-    = f.input :published, label: '公開分享'
+    = f.collection_radio_buttons :published, [[true, '公開分享'] ,[false, '不要公開']],
+                                 :first, :last
     = f.input :content ,as: :text, wrapper_html: {class: 'content-editor'},
               input_html: {class: 'redactor'} , label: '內容'
     = f.input :final_content ,as: :text, wrapper_html: {class: 'content-editor'},
