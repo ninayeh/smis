@@ -2,23 +2,25 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update]
   def index
-    @users = User.where(role: 'admin')
+    # @users = User.where(role: 'admin')
+    @users = User.all
   end
   #issue
   def save
     if !params[:id].nil?
-      @user = User.where(role: 'admin').find(params[:id])
+      # @user = User.where(role: 'admin').find(params[:id])
+      @user = User.find(params[:id])
     else
       redirect_to users_path
     end
 
     @schedules = Schedule.find_by(user_id: params[:id])
-
-    unless @schedules.nil?
+    unless @schedules.nil? && @schedules.published?
       @missions = Mission.where(schedule_id: @schedules.id).order(end_date: :asc)
     end
-    @notes = Note.where(user_id: params[:id]).order(updated_at: :asc)
-    @theses = Thesis.where(user_id: params[:id]).order(updated_at: :asc)
+
+    @notes = Note.where(user_id: params[:id]).where(published: true).order(updated_at: :asc)
+    @theses = Thesis.where(user_id: params[:id]).where(published: true).order(updated_at: :asc)
   end
 
   def show
