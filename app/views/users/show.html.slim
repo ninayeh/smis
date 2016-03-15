@@ -1,23 +1,91 @@
-h1 我的研究歷程資料
+.container
+  .col-lg-8.main-chart
+    .row.mtbox
+      .col-md-3.col-sm-3.box0.col-md-offset-1
+        .box1
+          = link_to schedules_path
+            span
+            i.fa.fa-calendar.fa-3x
+          h3 = [@notes.find_by(final_content: '')].count
+        p 您有 #{[@notes.find_by(final_content: '')].count} 篇未填寫反思筆記
+      .col-md-3.col-sm-3.box0
+        .box1
+          = link_to notes_path
+            span
+            i.fa.fa-book.fa-3x
+          h3 = [@notes.find_by(final_content: '')].count
+        p 您有 #{[@notes.find_by(final_content: '')].count} 篇未填寫反思筆記
+      .col-md-3.col-sm-3.box0
+        .box1
+          = link_to theses_path
+            span
+            i.fa.fa-cogs.fa-3x
+          h3 = @theses.count
+        p 您發想了 #{@theses.count} 個論文題目
 
-br
-.content-panel
-  = link_to "編輯個人資料", edit_user_registration_path, class:'btn btn-success btn-default'
-  table.table.table-hover
-    thead
-      tr.active
-        th colspan="2"  詳細資料
-    tbody
-      tr
-        td 姓名
-        td = current_user.name
-      tr
-        td 信箱
-        td = current_user.email
-      tr
-        td 系級
-        td = current_user.department.name
-      tr
-        td 研究室
-        td = need_updated_lab(current_user)
+  .col-sm-4.col-xs-12.main-chart
+    .content-panel
+      table.table.table-hover
+        thead
+          tr
+            th 詳細資料
+            th = link_to "編輯個人資料", edit_user_registration_path, class:'btn btn-default'
+        tbody
+          tr
+            td 姓名
+            td = current_user.name
+          tr
+            td 信箱
+            td = current_user.email
+          tr
+            td 系級
+            td = current_user.department.name
+          tr
+            td 研究室
+            td = need_updated_lab(current_user)
+
+  .col-sm-12.col-xs-12
+    - if @notes.nil?
+      .panel.panel-default
+        .panel-heading 尚未建立筆記
+    - else
+      .panel.panel-default
+        .panel-heading
+          h4 筆記
+        table.table
+          thead
+            tr
+              th 標題
+              th 建立日期
+              th 是否填寫反思筆記
+          tbody
+            - @notes.each do |note|
+              tr
+                td = note.title
+                td = note.updated_at
+                td = check_final_content(note.final_content)
+                td.numeric = link_to '檢視', note_path(note)
+  .col-sm-12.col-xs-12
+    - if @theses.nil?
+        .panel.panel-default
+          .panel-heading 尚未建立論文發想
+    - else
+      .panel.panel-default
+        .panel-heading
+          h4 論文發想歷程
+        table.table
+          thead
+            tr
+              th 標題
+              th 建立日期
+              th
+
+          tbody
+            - @theses.each do |thsis|
+              tr
+                td = thsis.title
+                td = thsis.updated_at
+                / td = check_final_content(note.final_content)
+                td.numeric = link_to '檢視', thesis_path(thsis)
+
 

@@ -24,6 +24,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @notes = Note.where(user_id: params[:id]).order(updated_at: :asc)
+    @theses = Thesis.where(user_id: params[:id]).order(updated_at: :asc)
+    @schedules = Schedule.find_by(user_id: params[:id])
 
   end
 

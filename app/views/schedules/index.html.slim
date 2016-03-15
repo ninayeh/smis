@@ -4,7 +4,6 @@
     - if @missions.nil?
       = link_to "還沒建立計畫嗎？點選開始建立研究規劃吧！", new_schedule_path
     - else
-      p = @schedules.id
       .col-md-12.mb
         = link_to clean_schedule_path(@schedules), data: {:confirm => '確定清除整份計畫嗎?(此動作無法還原喔)'},:method => :post, class:'btn btn-danger'
           i.fa.fa-trash-o.fa-lg
