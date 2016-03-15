@@ -1,16 +1,16 @@
 .container
   .col-md-10.col-md-offset-1
-    h1 研究題目：#{current_object.title}
-    p 建立日期：#{current_object.created_at.to_date}
-      | 上次修改日期：#{current_object.updated_at.to_date}
+    h1 研究題目：#{@thesis.title}
+    p 建立日期：#{@thesis.created_at.to_date}
+      | 上次修改日期：#{@thesis.updated_at.to_date}
     h3.mt 內容
     .content-panel.notes
       .content-panel-text
-        = current_object.content
-        = link_to_book_list(current_object)
-        = link_to_slide(current_object)
-    / - if can? :update, @current_object
-    /   .btn-group.btn-group-justified
-    /     = link_to '編輯', edit_thesis_path(current_object),class:'btn btn-default'
-    /     = link_to '返回', theses_path,class:'btn btn-default '
+        = @thesis.content
+        = link_to_book_list(@thesis)
+        = link_to_slide(@thesis)
+    - if can? :update, @thesis
+      .btn-group.btn-group-justified
+        = link_to '編輯', edit_thesis_path(@thesis),class:'btn btn-default'
+        = link_to '返回', theses_path,class:'btn btn-default '
 

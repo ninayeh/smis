@@ -1,5 +1,5 @@
 class ThesesController < BaseController
-  # authorize_resource :thesis
+  authorize_resource :thesis
   def index
     @theses = Thesis.where(user_id: current_user.id)
   end
@@ -18,6 +18,10 @@ class ThesesController < BaseController
       flash[:danger] = t('flash.failure_created')
       render 'new'
     end
+  end
+
+  def show
+    @thesis = Thesis.find(params[:id])
   end
 
   private
