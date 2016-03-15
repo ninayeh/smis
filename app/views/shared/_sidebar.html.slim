@@ -19,33 +19,46 @@ aside
             = link_to schedules_path
               i.fa.fa-calendar
               span 規劃里程碑
-          li.sub-menu.active
+          li
             li = link_to notes_path
               i.fa.fa-book
               span 研究筆記本
-          li.sub-menu
+          li
             = link_to theses_path
               i.fa.fa-cogs
               span 論文題目發想
-
-      li
-        = link_to root_path
-          i.fa.fa-home
-          span 首頁
-      li
-        = link_to about_path
-          i.fa.fa-graduation-cap
-          span 關於本平台
-      li
-        = link_to laboratories_path
-          i.fa.fa-flask
-          span 認識研究室
-      li
-        = link_to resources_path
-          i.fa.fa-share-alt
-          span 分享學習資源
-      - if user_signed_in?
-        li.sub-menu
+        li
+          = link_to about_path
+            i.fa.fa-graduation-cap
+            span 關於本平台
+        li
+          = link_to laboratories_path
+            i.fa.fa-flask
+            span 認識研究室
+        li
+          = link_to resources_path
+            i.fa.fa-share-alt
+            span 分享學習資源
+        li
           = link_to users_path
             i.fa.fa-graduation-cap
             span 學長姊足跡參考
+      - else
+        li
+          = link_to root_path
+            i.fa.fa-home
+            span 首頁
+        li
+          = link_to about_path
+            i.fa.fa-graduation-cap
+            span 關於本平台
+        li
+          = link_to laboratories_path
+            i.fa.fa-flask
+            span 認識研究室
+        li
+          = link_to resources_path
+            i.fa.fa-share-alt
+            span 分享學習資源
+
+

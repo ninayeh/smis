@@ -10,11 +10,12 @@
           h1 論文研究歷程管理平台
           h3 協助管理您的研究目標
           hr.intro-divider
-          ul.list-inline.intro-social-buttons
-            li
-              = link_to '註冊', new_user_registration_path, class:'btn btn-default btn-lg'
-            li
-              = link_to '登入', user_session_path, class:'btn btn-default btn-lg'
+          - unless user_signed_in?
+            ul.list-inline.intro-social-buttons
+              li
+                = link_to '註冊', new_user_registration_path, class:'btn btn-default btn-lg'
+              li
+                = link_to '登入', user_session_path, class:'btn btn-default btn-lg'
 
 a name="services"
 .content-section-a
