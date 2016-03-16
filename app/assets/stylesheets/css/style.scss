@@ -1158,6 +1158,19 @@ PANELS CONFIGURATIONS
   min-height: 300px;
 }
 
+.content-panel {
+  .btn-group.notes > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-radius:0;
+    border-left-color: transparent;
+  }
+  .btn-group.notes > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
+    border-radius:0;
+    border-right-color: transparent;
+  }
+  .btn-group.notes {
+    top:28px;
+  }
+}
 /*WEATHER PANELS*/
 
 

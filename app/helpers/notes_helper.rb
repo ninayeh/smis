@@ -3,6 +3,10 @@ module NotesHelper
     resource.html_safe
   end
 
+  def resize_content(resource)
+    resource.truncate(60).html_safe
+  end
+
   def check_final_content(resource)
     if resource.present?
       '<span class="badge bg-info"><i class=" fa fa-check"></i></span>'.html_safe
