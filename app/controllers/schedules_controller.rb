@@ -7,7 +7,7 @@ class SchedulesController < ApplicationController
     # if @schedules.nil?
 
     if !@schedules.nil? && @schedules.published?
-      @missions = Mission.where(schedule_id: @schedules.id).order(end_date: :asc)
+      @missions = Mission.where(schedule_id: @schedules.id).order(start_date: :asc)
     end
 
   end

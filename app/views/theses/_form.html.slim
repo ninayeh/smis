@@ -1,10 +1,12 @@
 = simple_form_for current_object do |f|
   = f.error_notification
   .form-inputs
-    = f.input :title, label: '論文題目'
+    = f.input :title, label: '論文題目', required: true
     = f.input :content, label: '說明'
     = f.input :book_list , label: '書單' , as: :file
     = f.input :slide , label: '投影片' , as: :file
-    = f.input :published, input_html: {checked: true}, label: '最後論文題目'
+    = f.collection_radio_buttons :published, [[true, ' 公開分享'] ,[false, ' 不要公開']],
+                                 :first, :last
+    / = f.input :published, input_html: {checked: true}, label: '最後論文題目'
   .form-actions
     = f.button :submit, "送出"

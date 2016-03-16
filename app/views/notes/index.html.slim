@@ -11,7 +11,7 @@
           .content-panel.pn
             .panel-heading.text-center
               .panel-title = note.title
-              .panel-title = note.updated_at.to_date
+              p.small 建立日期：#{note.updated_at.to_date}
             .panel-body
               / = resize_content(note.content)
               .row.text-center

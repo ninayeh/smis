@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
   belongs_to :department
   belongs_to :laboratory
   has_many :resources
+  # has_one  :primary_theses, -> { where(published: true) }, :class_name => "Thesis"
 end
