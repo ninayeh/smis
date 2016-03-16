@@ -39,7 +39,7 @@
                 td = mission.start_date
                 td = mission.end_date
 
-    - if @notes.nil?
+    - if @notes.blank?
       .panel.panel-default
         .panel-heading 尚未建立筆記
     - else
@@ -61,7 +61,7 @@
                 td = note.updated_at
                 td = check_final_content(note.final_content)
                 td.numeric = link_to '檢視', note_path(note)
-    - if @theses.nil?
+    - if @theses.blank?
       .panel.panel-default
         .panel-heading 尚未建立論文發想
     - else

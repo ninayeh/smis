@@ -1,30 +1,39 @@
 .container
-  .col-lg-8.main-chart
-    .row.mtbox
+  .col-lg-10.col-lg-offset-1.main-chart
+    .row.mt
+    - if @the_mission.blank?
       .col-md-3.col-sm-3.box0.col-md-offset-1
         .box1
           = link_to schedules_path
             span
             i.fa.fa-calendar.fa-3x
-          h3 = [@notes.find_by(final_content: '')].count
-        p 您有 #{[@notes.find_by(final_content: '')].count} 篇未填寫反思筆記
+          h3 = link_to "建立目標", schedules_path
+        p 您尚未建立目標
+    - else
       .col-md-3.col-sm-3.box0
         .box1
-          = link_to notes_path
+          = link_to schedules_path
             span
-            i.fa.fa-book.fa-3x
-          h3 = [@notes.find_by(final_content: '')].count
-        p 您有 #{[@notes.find_by(final_content: '')].count} 篇未填寫反思筆記
-      .col-md-3.col-sm-3.box0
-        .box1
-          = link_to theses_path
-            span
-            i.fa.fa-cogs.fa-3x
-          h3 = @theses.count
-        p 您發想了 #{@theses.count} 個論文題目
+            i.fa.fa-calendar.fa-3x
+          h3 = @the_mission.end_date
+        p 您的目標「 #{@the_mission.title}」預計#{@the_mission.end_date}完成
+    .col-md-3.col-sm-3.box0
+      .box1
+        = link_to notes_path
+          span
+          i.fa.fa-book.fa-3x
+        h3 = @notes.where(final_content: '').count
+      p 您有 #{@notes.where(final_content: '').count} 篇未填寫反思筆記
+    .col-md-3.col-sm-3.box0
+      .box1
+        = link_to theses_path
+          span
+          i.fa.fa-cogs.fa-3x
+        h3 = @theses.count
+      p 您發想了 #{@theses.count} 個論文題目
 
-  .col-sm-4.col-xs-12.main-chart
-    .content-panel
+  .col-sm-12.col-xs-12
+    .panel.panel-default.mt
       table.table.table-hover
         thead
           tr
@@ -45,7 +54,7 @@
             td = need_updated_lab(current_user)
 
   .col-sm-12.col-xs-12
-    - if @notes.nil?
+    - if @notes.blank?
       .panel.panel-default
         .panel-heading 尚未建立筆記
     - else
@@ -66,7 +75,7 @@
                 td = check_final_content(note.final_content)
                 td.numeric = link_to '檢視', note_path(note)
   .col-sm-12.col-xs-12
-    - if @theses.nil?
+    - if @theses.blank?
         .panel.panel-default
           .panel-heading 尚未建立論文發想
     - else
@@ -85,7 +94,5 @@
               tr
                 td = thsis.title
                 td = thsis.updated_at
-                / td = check_final_content(note.final_content)
                 td.numeric = link_to '檢視', thesis_path(thsis)
-
 
