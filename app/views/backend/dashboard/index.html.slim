@@ -1,2 +1,17 @@
-h1 Backend::Dashboard#index
-p Find me in app/views/backend/dashboard/index.html.slim
+.container
+  .col-lg-10.col-lg-offset-2.main-chart
+    .row.mt
+    .col-md-3.col-sm-3.box0
+      .box1
+        = link_to backend_resources_path
+          span
+          i.fa.fa-share-alt.fa-3x
+        h3 = @resources.count
+      p 您有 #{@resources.count} 學習資源尚未審核
+    .col-md-3.col-sm-3.box0
+      .box1
+        = link_to backend_users_path
+          span
+          i.fa.fa-user-plus.fa-3x
+        h3 = @count_users
+      p 目前有 #{@count_users} 使用者註冊
