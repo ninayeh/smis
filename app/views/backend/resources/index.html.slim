@@ -19,7 +19,7 @@
             - current_collection.each do |res|
               tr
                 td = res.title
-                td = res.user.name
+                td = res.try(:user).try(:name)
                 td = res.published
                 td.numeric = link_to '檢視', backend_resource_path(res),
                                              class:'btn btn-success btn-xs'
