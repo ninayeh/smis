@@ -1,6 +1,6 @@
 .container.mt
   .col-md-6.col-md-offset-3
-    .content-panel
+    .content-panel.mb
       .content-panel-text
         | 學習資源名稱：
         = @resource.title
@@ -15,3 +15,5 @@
         = link_to_file(@resource)
 
       = link_to '返回', resources_path, class:'btn btn-default content-panel-text'
+
+    #disqus_thread

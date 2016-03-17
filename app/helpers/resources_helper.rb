@@ -15,4 +15,8 @@ module ResourcesHelper
       raw "<span></span>"
     end
   end
+
+  def resize_content(resource)
+    resource.truncate(20).html_safe
+  end
 end
