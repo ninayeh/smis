@@ -3,4 +3,13 @@
     .content-panel
       .content-panel-text
         h1 新增學習資源
-        = render 'form'
+        = simple_form_for [:backend, @resource] do |f|
+          = f.error_notification
+          = f.input :title, label: '學習資源名稱'
+          = f.input :description, label: '學習資源簡介'
+          = f.input :url, label: '學習資源網址'
+          = f.input :published, as: :boolean, checked_value: true, unchecked_value: false,
+                    label: '發布'
+          = f.input :file , label: '相關檔案' , as: :file
+          .form-actions
+            = f.button :submit, '送出'
