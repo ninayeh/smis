@@ -2,6 +2,7 @@
   = f.error_notification
   .form-inputs
     = f.input :title, label: '論文題目', required: true
+    = f.input :created_at ,as: :date_time_picker, label: '建立日期', input_html: {placeholder: Date.today}
     = f.input :content, label: '說明'
     = f.input :book_list , label: '書單' , as: :file
     = f.input :slide , label: '投影片' , as: :file
