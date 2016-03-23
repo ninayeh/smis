@@ -32,7 +32,7 @@ class ThesesController < BaseController
 
   def object_params
     params.require(:thesis).permit(:title, :content, :book_list, :slide,
-                                   :published, :user_id, :created_at)
+                                   :published, :user_id, :created_at, :final)
   end
 
 

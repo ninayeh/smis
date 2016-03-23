@@ -13,6 +13,5 @@ module UsersHelper
     else
       link_to '<i class="fa fa-info-circle"></i> 尚未填寫'.html_safe, edit_user_registration_path
     end
-
   end
 end

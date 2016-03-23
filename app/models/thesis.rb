@@ -4,4 +4,5 @@ class Thesis < ActiveRecord::Base
   mount_uploader :slide, BooklistUploader
 
   validates_presence_of :title
+  validates :final, uniqueness: true
 end

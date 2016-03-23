@@ -19,9 +19,17 @@ module ThesesHelper
 
   def check_published(resource)
     if resource.published
-      '已發布'.html_safe
+      '公開'.html_safe
     else
-      '未發布'.html_safe
+      '未公開'.html_safe
+    end
+  end
+
+  def check_final(resource)
+    if resource.final
+      '是'.html_safe
+    else
+      '否'.html_safe
     end
   end
 

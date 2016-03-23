@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
     @notes = Note.where(user_id: params[:id]).where(published: true).order(updated_at: :asc)
     @theses = Thesis.where(user_id: params[:id]).where(published: true).order(updated_at: :asc)
+    @final_thsis = Thesis.where(user_id: params[:id]).find_by(final: true).try(:title)
   end
 
   def show
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
     unless @schedules.nil?
       @the_mission = Mission.where(schedule_id: @schedules.id).now_mission.first
     end
+    @final_thsis = Thesis.where(user_id: params[:id]).find_by(final: true).title
   end
 
   def edit
