@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     unless @schedules.nil?
       @the_mission = Mission.where(schedule_id: @schedules.id).now_mission.first
     end
-    @final_thsis = Thesis.where(user_id: params[:id]).find_by(final: true).title
+    @final_thsis = Thesis.where(user_id: params[:id]).find_by(final: true).try(:title)
   end
 
   def edit

@@ -52,6 +52,9 @@
           tr
             td 研究室
             td = need_updated_lab(current_user)
+          tr
+            td 最後論文題目
+            td = @final_thsis
 
   .col-sm-12.col-xs-12
     - if @notes.blank?
