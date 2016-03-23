@@ -21,7 +21,8 @@ class ResourcesController < ApplicationController
   end
 
   def show
-
+    @comments = @resource.resource_comments.all
+    @comment = @resource.resource_comments.build
   end
 
   private

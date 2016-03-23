@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :laboratories,only: [:index, :show]
   resources :theses
   resources :resources,only:[:index, :show, :new, :create]
-
+  resources :resource_comments, skip: [:edit]
   resources :redactor_images, only: :create
 
   # 沒有使用到的
