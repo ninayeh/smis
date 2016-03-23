@@ -1,9 +1,9 @@
 = simple_form_for(@comment) do |f|
   = f.error_notification
   .form-inputs
-    = f.input :comment, label: "以「#{current_user.name}」留言"
+    = f.input :comment, label: "以「#{current_user.name}」回應"
     = f.hidden_field :note_id
-  .form-actions
+  .form-actions.comment
     = f.button :submit, "送出"
 
 

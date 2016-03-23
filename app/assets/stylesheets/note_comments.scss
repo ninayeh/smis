@@ -1,9 +1,37 @@
 // Place all the styles related to the note_comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.btn-submit {
 
+.form-actions.comment {
+  background-color: #F6F8F9;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 34px;
+  border: 1px solid #DFE2E3;
+  border-top: 0;
+  .btn.btn-default {
+    float: right;
+    border-radius: 0px;
+    background-color: #737F85;
+    color: white;
+    border: 0 1px 0 0;
+
+}
+}
+.form-group.note_comment_comment {
+  margin-bottom: 0;
 }
 hr.comment {
   border-top: 2px solid #DFE2E3;
+}
+.ui.secondary.segment {
+  margin: 0 0 10px;
+}
+// .author {
+//   color: rgb(51, 122, 183);
+// }
+.comment-link {
+  color: #7f929c;
 }
