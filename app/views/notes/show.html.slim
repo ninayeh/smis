@@ -22,6 +22,19 @@
       .content-panel-text = sanitize_content(@note.final_content)
 
     #disqus_thread
+    .mt
+    = render 'note_comments/form'
 
+    - @comments.each.with_index(1) do |comment, ind|
+      .ui.secondary.segment id="comment-#{comment.id}"
+        span 回應 ##{ind}
+        span.float.right.author #{comment.user_name}
+      .ui.segment class="comment-#{comment.id}-hide" data-status='view-comment'
+        p = comment.comment
+        - if comment.user_name == current_user.name
+          = link_to '編輯', note_comment_path(comment), remote: true,
+            class: 'btn btn-default btn-xs'
+      div id="comment-#{comment.id}-edit"
+      hr.comment
 
 

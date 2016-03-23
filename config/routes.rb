@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
 
   resources :notes
+  resources :note_comments
   # resources :book_lists
   resources :schedules do
     member do

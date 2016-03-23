@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316081424) do
+ActiveRecord::Schema.define(version: 20160322033838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 20160316081424) do
   end
 
   add_index "missions", ["schedule_id"], name: "index_missions_on_schedule_id", using: :btree
+
+  create_table "note_comments", force: :cascade do |t|
+    t.text     "comment"
+    t.string   "user_name"
+    t.integer  "note_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "note_comments", ["note_id"], name: "index_note_comments_on_note_id", using: :btree
 
   create_table "notes", force: :cascade do |t|
     t.string   "title"
@@ -142,6 +152,7 @@ ActiveRecord::Schema.define(version: 20160316081424) do
 
   add_foreign_key "laboratories", "departments"
   add_foreign_key "missions", "schedules"
+  add_foreign_key "note_comments", "notes"
   add_foreign_key "notes", "users"
   add_foreign_key "resources", "users"
   add_foreign_key "schedules", "users"

@@ -1,0 +1,12 @@
+= simple_form_for @comment, remote: true,
+  url: @comment.new_record? ? note_comments_path : note_comment_path do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :comment, label: "以「#{current_user.name}」修改留言"
+    = f.hidden_field :note_id
+  .form-actions
+    = f.button :submit, "儲存", class: 'btn btn-default btn-xs btn-submit'
+
+    = link_to '取消編輯', note_comment_path(comment), remote: true, class: 'btn btn-default btn-xs'
+    '|
+    = link_to '刪除留言', note_comment_path(comment), method: :delete, class: 'btn btn-default btn-xs'
