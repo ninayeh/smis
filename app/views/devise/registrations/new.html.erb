@@ -10,6 +10,7 @@
             <%= f.input :name, required: true, label: '姓名'  %>
             <%= f.association :department,required: true, autofocus: true,
                 prompt: "請選擇", label: '系所'%>
+            <%= f.association :laboratory, autofocus: true, prompt: "請選擇", label: '實驗室'%>
             <%= f.input :email, required: true, autofocus: true, input_html: { class: 'form-control' }, label: '信箱'  %>
             <%= f.input :password, required: true, hint: ("至少 #{@minimum_password_length} 個字元" if @minimum_password_length), input_html: { class: 'form-control' }, label: '密碼'   %>
             <%= f.input :password_confirmation, required: true, input_html: { class: 'form-control' } , label: '再次輸入密碼'  %>
