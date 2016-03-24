@@ -15,7 +15,7 @@
               th 研究室
               th 顯示
               th 權限
-              th colspan="3"
+              th colspan="2"
           tbody
             - current_collection.each do |user|
               tr
@@ -26,4 +26,4 @@
                 td = user.role
                 td = link_to '顯示', {action: :show, id: user.id} ,class:'btn btn-success btn-xs'
                 td = link_to '編輯', {action: :edit, id: user.id} ,class:'btn btn-success btn-xs'
-                td = link_to '刪除', {action: :destroy, id: user.id}, method: :delete, data: {confirm: 'Are you sure?'}  ,class:'btn btn-danger btn-xs'
+                / td = link_to '刪除', {action: :destroy, id: user.id}, method: :delete, data: {confirm: 'Are you sure?'}  ,class:'btn btn-danger btn-xs'
