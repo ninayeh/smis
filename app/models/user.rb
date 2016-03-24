@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  validates_presence_of :department, :name
+
   has_many :schedules
   has_many :notes
   has_many :theses
