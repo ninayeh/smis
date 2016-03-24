@@ -5,20 +5,22 @@ class Thesis < ActiveRecord::Base
 
   validates_presence_of :title
 
-  validate :only_one_final_thesis
-  scope :final, -> { where(final: true)}
+  validates :final, :uniqueness => { :scope => :user_id }, :if => :final
 
-  protected
-  def only_one_final_thesis
-    return unless final?
+  # validate :only_one_final_thesis
+  # scope :the_final, -> { where(final: true)}
 
-    matches = Thesis.final
-    if persisted?
-      matches = matches.where('id != ?', id)
-    end
-    if matches.exists?
-      errors.add(:final, '您已經選擇其他篇為最終論文題目。')
-    end
-  end
+  # protected
+  # def only_one_final_thesis
+  #   return unless final?
+
+  #   matches = Thesis.the_final
+  #   if persisted?
+  #     matches = matches.where('id != ?', id)
+  #   end
+  #   if matches.exists?
+  #     errors.add(:final, '您已經選擇其他篇為最終論文題目。')
+  #   end
+  # end
 
 end
