@@ -19,3 +19,8 @@
                   td = user.try(:laboratory).try(:name)
                   td.numeric = link_to '檢視', save_user_path(user), class:'btn btn-default btn-sm'
 
+          .text-center
+            = paginate @users
+
+
+

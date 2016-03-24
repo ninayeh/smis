@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def index
-    @users = User.all.order("id ASC")
-    @users = User.where(active: true).order("id ASC")
+    # @users = User.all.order("id ASC")
+    @users = User.where(active: true).order("id ASC").page params[:page]
   end
 
   def save
