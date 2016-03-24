@@ -16,6 +16,6 @@ class Backend::UsersController < Backend::BaseController
 
   def object_params
     params.require(:user).permit(:email, :password, :password_confirmation, :role,
-                                 :name, :department_id)
+                                 :name, :department_id, :active)
   end
 end

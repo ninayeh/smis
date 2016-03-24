@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def index
-    @users = User.all
+    @users = User.all.order("id ASC")
+    @users = User.where(active: true).order("id ASC")
   end
 
   def save
@@ -45,6 +46,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :role, :name, :department_id)
+    params.require(:user).permit(:email, :password, :password_confirmation, :role, :name, :department_id, :active)
   end
 end
