@@ -61,7 +61,7 @@
             - @notes.each do |note|
               tr
                 td = note.title
-                td = note.updated_at
+                td = note.created_at.to_date
                 td = check_final_content(note.final_content)
                 td.numeric = link_to '檢視', note_path(note)
     - if @theses.blank?
@@ -76,14 +76,15 @@
             tr
               th 標題
               th 建立日期
+              th 發佈狀態
               th
 
           tbody
             - @theses.each do |thsis|
               tr
                 td = thsis.title
-                td = thsis.updated_at
-                / td = check_final_content(note.final_content)
+                td = thsis.created_at.to_date
+                td = check_published(thsis)
                 td.numeric = link_to '檢視', thesis_path(thsis)
 
     = link_to '返回', users_path, class:'btn btn-primary'

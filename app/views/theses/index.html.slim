@@ -22,7 +22,7 @@
             tbody
               - @theses.each do |theses|
                 tr
-                  td = theses.updated_at.to_date
+                  td = theses.created_at.to_date
                   td = theses.title
                   td = check_published(theses)
                   td = check_final(theses)
