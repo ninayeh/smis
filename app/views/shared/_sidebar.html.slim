@@ -18,7 +18,7 @@ aside
           li
             = link_to schedules_path
               i.fa.fa-calendar
-              span 規劃里程碑
+              span 研究歷程管理
           li
             li = link_to notes_path
               i.fa.fa-book
@@ -28,9 +28,10 @@ aside
               i.fa.fa-cogs
               span 論文題目發想
         li
-          = link_to about_path
-            i.fa.fa-graduation-cap
-            span 關於本平台
+          / = link_to about_path
+          = link_to 'https://sites.google.com/site/ntustsmis/', target:"_blank"
+            i.fa.fa-info-circle
+            span 平台介紹
         li
           = link_to laboratories_path
             i.fa.fa-flask
@@ -60,5 +61,10 @@ aside
           = link_to resources_path
             i.fa.fa-share-alt
             span 分享學習資源
-
-
+    #search-container
+      = form_tag 'http://www.google.com.tw/search', id: 'cse-search-box', target: '_blank', method: :get, class: 'search-form'
+              = hidden_field_tag 'cx', '015592337883365965060:hsn8qwecryo'
+              = hidden_field_tag 'ie', 'utf-8'
+              = text_field_tag 'q', nil, id: 'google-search-field', placeholder: 'SEARCH', title: '站內搜尋 (請在此輸入要搜尋的關鍵字)'
+              = button_tag nil, name: 'sa', class: 'btn btn-search', title: '送出搜尋 (另開新視窗)' do
+                span.fa.fa-search
