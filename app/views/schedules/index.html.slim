@@ -2,7 +2,7 @@
   .col-lg-12
     h1 安排論文進度
     - if @missions.nil?
-      = link_to "還沒建立計畫嗎？點選開始建立研究規劃吧！", new_schedule_path
+      = link_to "還沒建立計畫嗎？點選開始建立研究計畫吧！", new_schedule_path
     - else
       .col-md-12.mb
         = link_to clean_schedule_path(@schedules), data: {:confirm => '確定清除整份計畫嗎?(此動作無法還原喔)'},:method => :post, class:'btn btn-danger'
