@@ -1,7 +1,12 @@
+| console.log('yeah');
 | $(".comment-#{@comment.id}-hide").toggleClass("hidden temporarily");
-
 | $("#comment-#{@comment.id}-edit").html("
 = j(render 'edit_form', comment: @comment)
 | ");
 | $(".comment-#{@comment.id}-edit-box").html("");
 | $("#comment-#{@comment.id}-edit").toggleClass("comment-#{@comment.id}-edit-box");
+| $('.edit-redactor').redactor({
+|    lang: 'zh_tw',
+|    imageUpload: '/redactor_images',
+|    imageUploadParam: 'redactor_image[image]'
+|})

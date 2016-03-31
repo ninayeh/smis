@@ -30,9 +30,9 @@
         / span ##{ind}
         span.float.right.author #{comment.user_name} 回應：
       .ui.segment class="comment-#{comment.id}-hide" data-status='view-comment'
-        p = comment.comment
+        p = sanitize_content(comment.comment)
         - if comment.user_name == current_user.name
-          = link_to '編輯', note_comment_path(comment), remote: true, class:'comment-link'
+          = link_to '編輯', note_comment_path(comment), remote: true, class:'comment-link comment-edit'
       div id="comment-#{comment.id}-edit"
       hr.comment
 

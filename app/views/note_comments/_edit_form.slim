@@ -1,8 +1,9 @@
 = simple_form_for @comment, remote: true,
   url: @comment.new_record? ? note_comments_path : note_comment_path do |f|
   = f.error_notification
-  .form-inputs
-    = f.input :comment, label: "以「#{current_user.name}」修改"
+  .form-inputs.comment
+    / = f.input :comment, input_html: {class: 'redactor'} , label: "以「#/{current_user.name}」修改"
+    = f.input :comment ,as: :text, input_html: {class: 'edit-redactor'} , label: "以「#{current_user.name}」修改"
     = f.hidden_field :note_id
   .form-actions.comment
     = f.button :submit, "儲存", class: 'btn btn-default btn-submit'

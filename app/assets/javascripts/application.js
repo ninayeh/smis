@@ -17,7 +17,7 @@ $(document).ready(function(){
     });
 
   $('.redactor').redactor({
-    minHeight: 300,
+    // minHeight: 300,
     lang: 'zh_tw',
     imageUpload: '/redactor_images',
     imageUploadParam: 'redactor_image[image]'
@@ -39,4 +39,7 @@ $(document).ready(function(){
   });
 
 });
+
+
+
 

@@ -10,6 +10,7 @@
 /*
 	Box
 */
+
 .redactor-box {
   position: relative;
   overflow: visible;
@@ -94,6 +95,7 @@ body .redactor-box-fullscreen {
   font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
   font-size: 14px;
   line-height: 1.6em;
+  height: 300px;
 }
 .redactor-editor:focus {
   outline: none;

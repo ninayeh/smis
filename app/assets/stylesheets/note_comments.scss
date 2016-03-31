@@ -33,3 +33,12 @@ hr.comment {
 .comment-link {
   color: #7f929c;
 }
+
+.comment {
+  .redactor-box {
+    margin-bottom: 0;
+  }
+  .redactor-editor {
+    height: auto;
+  }
+}
