@@ -220,6 +220,7 @@ ul.top-menu > li > .logout {
     height: 100%;
     position: fixed;
     background: #424a5d;
+    overflow-y: auto;
 }
 
 #sidebar .left {
@@ -353,7 +354,9 @@ ul.sidebar-menu li a{
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
-
+ul.sub li a {
+  padding: 5px;
+}
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
     background: #68dff0;
     color: #fff;

@@ -12,9 +12,9 @@
 //= require_tree .
 
 $(document).ready(function(){
-  $('#sidebar .sub-menu > a').click(function () {
-        $('.sub').toggle("slow");
-    });
+  // $('#sidebar .sub-menu > a').click(function () {
+  //       $('.sub').toggle("slow");
+  //   });
 
   $('.redactor').redactor({
     // minHeight: 300,
