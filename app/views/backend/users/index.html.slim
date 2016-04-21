@@ -27,3 +27,5 @@
                 td = link_to '顯示', {action: :show, id: user.id} ,class:'btn btn-success btn-xs'
                 td = link_to '編輯', {action: :edit, id: user.id} ,class:'btn btn-success btn-xs'
                 / td = link_to '刪除', {action: :destroy, id: user.id}, method: :delete, data: {confirm: 'Are you sure?'}  ,class:'btn btn-danger btn-xs'
+      .text-center
+        = paginate current_collection
