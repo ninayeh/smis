@@ -20,7 +20,7 @@
               tr
                 td = res.title
                 td = res.try(:user).try(:name)
-                td = res.published
+                td = check_publish(res)
                 td.numeric = link_to '檢視', backend_resource_path(res),
                                              class:'btn btn-success btn-xs'
                 td.numeric = link_to '編輯', edit_backend_resource_path(res) ,

@@ -19,4 +19,12 @@ module ResourcesHelper
   def resize_content(resource)
     resource.truncate(20).html_safe
   end
+
+  def check_publish(resource)
+    if resource.published
+      '<span class="badge bg-info"><i class=" fa fa-check"></i></span>'.html_safe
+    else
+      '<span class="badge bg-important"><i class=" fa fa-times "></i></span>'.html_safe
+    end
+  end
 end
