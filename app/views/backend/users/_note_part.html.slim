@@ -8,11 +8,15 @@
         tr
           th 標題
           th 建立日期
-          th 是否填寫反思筆記
+          th 反思筆記
+          th 分享狀態
+
 
       tbody
         - @notes.each do |note|
           tr
-            td = note.title
-            td = note.updated_at
+            td = link_to note.title, note_path(note)
+            td = note.created_at.to_date
             td = check_final_content(note.final_content)
+            td = check_published(note)
+

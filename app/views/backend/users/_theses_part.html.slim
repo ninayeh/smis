@@ -16,6 +16,6 @@
         - @theses.each do |thsis|
           tr
             td = thsis.title
-            td = thsis.updated_at
+            td = thsis.created_at.to_date
             / td = check_final_content(note.final_content)
             td.numeric = link_to '檢視', thesis_path(thsis)
