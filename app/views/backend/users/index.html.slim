@@ -13,6 +13,7 @@
               th ID
               th 使用者名稱
               th 研究室
+              th 筆記
               th 顯示
               th 權限
               th colspan="2"
@@ -22,6 +23,7 @@
                 td = user.id
                 td = user.name
                 td = user.try(:laboratory).try(:name)
+                td = user.try(:notes).count
                 td = user.active
                 td = user.role
                 td = link_to '顯示', {action: :show, id: user.id} ,class:'btn btn-success btn-xs'
