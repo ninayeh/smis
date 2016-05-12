@@ -54,6 +54,7 @@ gem 'momentjs-rails'
 gem 'fullcalendar-rails', '~> 2.6'
 
 gem 'highline'
+gem 'rails-erd'
 
 group :development, :test do
   gem 'byebug'
