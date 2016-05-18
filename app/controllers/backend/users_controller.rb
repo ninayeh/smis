@@ -9,9 +9,13 @@ class Backend::UsersController < Backend::BaseController
     @notes = Note.where(user_id: params[:id]).order(updated_at: :asc)
     @theses = Thesis.where(user_id: params[:id]).order(updated_at: :asc)
   end
+  def index
+    @users = User.joins(:notes).group("id").order("count(notes.user_id) desc")
+  end
   private
   def collection_scope
-    User.order("id ASC")
+    #User.order("id ASC")
+    User
   end
 
   def object_params

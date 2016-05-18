@@ -18,7 +18,7 @@
               th 權限
               th colspan="2"
           tbody
-            - current_collection.each do |user|
+            - @users.each do |user|
               tr
                 td = user.id
                 td = user.name
