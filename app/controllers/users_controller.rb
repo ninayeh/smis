@@ -5,8 +5,8 @@ class UsersController < ApplicationController
   def index
     # @users = User.all.order("id ASC")
     #@users = User.where(active: true).order("id ASC").page params[:page]
-    @users = User.joins(:notes).where(active: true).group("id").order("count(notes.user_id) desc")
-    @user_count = User.where(active: true).order("id ASC").page params[:page]
+    @users = User.joins(:notes).where(active: true).group("id").order("count(notes.user_id) desc").page params[:page]
+    @user_count = User.where(active: true).page params[:page]
   end
 
   def save
