@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   def index
     # @users = User.all.order("id ASC")
     #@users = User.where(active: true).order("id ASC").page params[:page]
-    @users = User.joins(:notes).where(active: true).group("id").order("count(notes.user_id) desc").page params[:page]
+    # @users = User.joins(:notes).group("id").order("count(notes.user_id) desc").page params[:page]
+    # @resources = Resouce.select("resources.*, COUNT(votes.id) vote_count").joins(:votes).where(language_id: "ruby").group("resources.id").order("vote_count DESC")
+    @users = User.where(active: true).count_user_notes.page params[:page]
     @user_count = User.where(active: true).page params[:page]
   end
 

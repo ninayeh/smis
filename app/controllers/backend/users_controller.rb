@@ -10,7 +10,8 @@ class Backend::UsersController < Backend::BaseController
     @theses = Thesis.where(user_id: params[:id]).order(updated_at: :asc)
   end
   def index
-    @users = User.joins(:notes).group("id").order("count(notes.user_id) desc")
+    # @users = User.joins(:notes).group("id").order("count(notes.user_id) desc")
+    @users = User.count_user_notes.page params[:page]
   end
   private
   def collection_scope
