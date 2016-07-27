@@ -11,6 +11,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# configuration
+gem "figaro"
+
 # file
 gem 'carrierwave'
 gem 'mini_magick'
@@ -45,7 +48,7 @@ gem 'cancancan'
 
 # I18n
 gem 'rails-i18n'
-gem 'json'
+gem 'json', '~> 1.8', '>= 1.8.3'
 
 gem 'bootstrap-datepicker-rails'
 gem 'settingslogic'
@@ -62,6 +65,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'heroku'
 end
 
 group :development do
