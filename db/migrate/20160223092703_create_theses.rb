@@ -1,4 +1,4 @@
-class CreateTheses < ActiveRecord::Migration
+class CreateTheses < ActiveRecord::Migration[5.0]
   def change
     create_table :theses do |t|
       t.string  :title

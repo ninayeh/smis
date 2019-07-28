@@ -1,13 +1,17 @@
 source 'https://rubygems.org'
+
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby '2.6.3'
 # Basic settings
-gem 'rails', '4.2.4'
-gem 'pg'
+
+gem 'rails', '~> 5.2.3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '4.2.2'
 
 gem 'jquery-rails'
-gem 'turbolinks'
+gem 'turbolinks', '5.0.1'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -63,19 +67,21 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'factory_girl_rails'
+  #gem 'factory_girl_rails'
   gem 'faker'
-  gem 'heroku'
+  # gem 'heroku'
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.0'
   gem 'spring'
   gem 'better_errors'
+  gem 'sqlite3'
 end
 
 group :production do
   gem 'rails_12factor'
+  gem 'pg', '0.20.0'
 end
 
 group :development do
