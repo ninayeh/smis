@@ -12,20 +12,23 @@
 
 ActiveRecord::Schema.define(version: 2016_03_24_055949) do
 
-  create_table "book_lists", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "book_lists", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "file"
   end
 
-  create_table "departments", force: :cascade do |t|
+  create_table "departments", id: :serial, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "laboratories", force: :cascade do |t|
+  create_table "laboratories", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "professor_name"
     t.text "description"
@@ -36,7 +39,7 @@ ActiveRecord::Schema.define(version: 2016_03_24_055949) do
     t.index ["department_id"], name: "index_laboratories_on_department_id"
   end
 
-  create_table "missions", force: :cascade do |t|
+  create_table "missions", id: :serial, force: :cascade do |t|
     t.string "title"
     t.date "end_date"
     t.datetime "created_at", null: false
@@ -47,7 +50,7 @@ ActiveRecord::Schema.define(version: 2016_03_24_055949) do
     t.index ["schedule_id"], name: "index_missions_on_schedule_id"
   end
 
-  create_table "note_comments", force: :cascade do |t|
+  create_table "note_comments", id: :serial, force: :cascade do |t|
     t.text "comment"
     t.string "user_name"
     t.integer "note_id"
@@ -56,7 +59,7 @@ ActiveRecord::Schema.define(version: 2016_03_24_055949) do
     t.index ["note_id"], name: "index_note_comments_on_note_id"
   end
 
-  create_table "notes", force: :cascade do |t|
+  create_table "notes", id: :serial, force: :cascade do |t|
     t.string "title"
     t.string "category"
     t.text "content"
@@ -68,13 +71,13 @@ ActiveRecord::Schema.define(version: 2016_03_24_055949) do
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
-  create_table "redactor_images", force: :cascade do |t|
+  create_table "redactor_images", id: :serial, force: :cascade do |t|
     t.string "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "resource_comments", force: :cascade do |t|
+  create_table "resource_comments", id: :serial, force: :cascade do |t|
     t.text "comment"
     t.string "user_name"
     t.integer "resource_id"
@@ -83,7 +86,7 @@ ActiveRecord::Schema.define(version: 2016_03_24_055949) do
     t.index ["resource_id"], name: "index_resource_comments_on_resource_id"
   end
 
-  create_table "resources", force: :cascade do |t|
+  create_table "resources", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "url"
@@ -95,7 +98,7 @@ ActiveRecord::Schema.define(version: 2016_03_24_055949) do
     t.index ["user_id"], name: "index_resources_on_user_id"
   end
 
-  create_table "schedules", force: :cascade do |t|
+  create_table "schedules", id: :serial, force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
@@ -105,14 +108,14 @@ ActiveRecord::Schema.define(version: 2016_03_24_055949) do
     t.index ["user_id"], name: "index_schedules_on_user_id"
   end
 
-  create_table "shares", force: :cascade do |t|
+  create_table "shares", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "theses", force: :cascade do |t|
+  create_table "theses", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.string "book_list"
@@ -125,7 +128,7 @@ ActiveRecord::Schema.define(version: 2016_03_24_055949) do
     t.index ["user_id"], name: "index_theses_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -149,4 +152,14 @@ ActiveRecord::Schema.define(version: 2016_03_24_055949) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "laboratories", "departments"
+  add_foreign_key "missions", "schedules"
+  add_foreign_key "note_comments", "notes"
+  add_foreign_key "notes", "users"
+  add_foreign_key "resource_comments", "resources"
+  add_foreign_key "resources", "users"
+  add_foreign_key "schedules", "users"
+  add_foreign_key "theses", "users"
+  add_foreign_key "users", "departments"
+  add_foreign_key "users", "laboratories"
 end
