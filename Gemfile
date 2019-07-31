@@ -31,7 +31,7 @@ gem 'mini_magick'
 # Use Capistrano for deployment
 
 # Assets
-gem 'bootstrap-sass', '~> 3.3.5'
+gem "bootstrap-sass", ">= 3.4.1"
 gem 'font-awesome-sass', '~> 4.4.0'
 gem 'autoprefixer-rails'
 
